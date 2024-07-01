@@ -96,6 +96,30 @@
 //     return 0;
 // }
 //键盘输入一个数字，然后求出这个数是几位数，然后倒叙输出
+// int main()
+// {
+//     int num = 0;
+//     printf("请输入一个整数：\n");
+//     scanf("%d",&num);
+//     int count = 0;//用来记录几位数
+//     int sum = 0;//用来记录倒叙输出
+//     int n = num;//将num备份
+//     while (num)
+//     {
+//         count++;
+//         num = num / 10;
+//     }
+//     int i = 0;
+//     for (i = 0 ; i < count;i++)
+//     {
+//         sum = sum *10 + n % 10;
+//         n = n /10;
+//     }
+//     printf("%d,%d\n",count,sum);
+//     return 0;
+// }
+
+//放在一个循环里面
 int main()
 {
     int num = 0;
@@ -103,20 +127,13 @@ int main()
     scanf("%d",&num);
     int count = 0;//用来记录几位数
     int sum = 0;//用来记录倒叙输出
-    int n = num;//将num备份
     while (num)
     {
         count++;
+        sum = sum *10 + num %10;
         num = num / 10;
-    }
-    int i = 0;
-    for (i = 0 ; i < count;i++)
-    {
-        sum = sum *10 + n % 10;
-        n = n /10;
     }
     printf("%d,%d\n",count,sum);
     return 0;
 }
-
 
