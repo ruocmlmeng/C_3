@@ -55,6 +55,12 @@ build CMakeFiles/Test5.dir/test_6_30.c.obj: C_COMPILER__Test5_unscanned_Debug E$
   OBJECT_DIR = CMakeFiles\Test5.dir
   OBJECT_FILE_DIR = CMakeFiles\Test5.dir
 
+build CMakeFiles/Test5.dir/test_7_2.c.obj: C_COMPILER__Test5_unscanned_Debug E$:/Programs/CLion/Test5/test_7_2.c || cmake_object_order_depends_target_Test5
+  DEP_FILE = CMakeFiles\Test5.dir\test_7_2.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Test5.dir
+  OBJECT_FILE_DIR = CMakeFiles\Test5.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Test5
@@ -63,7 +69,7 @@ build CMakeFiles/Test5.dir/test_6_30.c.obj: C_COMPILER__Test5_unscanned_Debug E$
 #############################################
 # Link the executable Test5.exe
 
-build Test5.exe: C_EXECUTABLE_LINKER__Test5_Debug CMakeFiles/Test5.dir/test_6_30.c.obj
+build Test5.exe: C_EXECUTABLE_LINKER__Test5_Debug CMakeFiles/Test5.dir/test_6_30.c.obj CMakeFiles/Test5.dir/test_7_2.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Test5.dir
