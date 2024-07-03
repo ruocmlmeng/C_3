@@ -12,7 +12,7 @@
 // {
 //     int I = 0;
 //     int money = 0;
-//     printf("å…¬å¸ä»Šå¹´çš„åˆ©æ¶¦ä¸º:\n");
+//     printf("¹«Ë¾½ñÄêµÄÀûÈóÎª:\n");
 //     scanf("%d",&I);
 //
 //     switch(I / 100000)
@@ -42,7 +42,7 @@
 //             }
 //     }
 //
-//     printf("å¥–é‡‘ä¸º%d\n",money);
+//     printf("½±½ğÎª%d\n",money);
 //     return 0;
 // }
 // int main()
@@ -51,7 +51,7 @@
 //   double num2 = 0;
 //   char ch = 0;
 //   double res = 0;
-//   printf("è¯·è¾“å…¥ä½ è¦è¿›è¡Œçš„æ“ä½œ: (ä¾‹å¦‚: 1+2) \n");
+//   printf("ÇëÊäÈëÄãÒª½øĞĞµÄ²Ù×÷: (ÀıÈç: 1+2) \n");
 //   scanf("%lf%c%lf",&num1,&ch,&num2);
 //   switch(ch)
 //   {
@@ -71,7 +71,7 @@
 //       res = (int )num1 % (int )num2;
 //     break;
 //     default:
-//       printf("è¾“å…¥çš„è¿ç®—ç¬¦é”™è¯¯!è¯·é‡æ–°è¾“å…¥.\n");
+//       printf("ÊäÈëµÄÔËËã·û´íÎó!ÇëÖØĞÂÊäÈë.\n");
 //     break;
 //   }
 //   printf("%.1lf %c %.1lf = %.1lf\n",num1,ch,num2,res);
@@ -92,13 +92,13 @@
 // int main()
 // {
 //     int i = 0;
-//     int flag = 0;//è®°å½•æ¯ä¸ªä½çš„ä¸‰æ¬¡å¹‚
-//     int sum = 0;//è®°å½•æ¯ä¸ªä½çš„ä¸‰æ¬¡å¹‚çš„å’Œ
+//     int flag = 0;//¼ÇÂ¼Ã¿¸öÎ»µÄÈı´ÎÃİ
+//     int sum = 0;//¼ÇÂ¼Ã¿¸öÎ»µÄÈı´ÎÃİµÄºÍ
 //     for(i = 100; i <1000;i++)
 //     {
 //         sum = 0;
-//         int res = i;//å¤‡ä»½i
-//         //æ±‚å‡ºä¸ªä½ï¼Œåä½ï¼Œç™¾ä½
+//         int res = i;//±¸·İi
+//         //Çó³ö¸öÎ»£¬Ê®Î»£¬°ÙÎ»
 //         while(res)
 //         {
 //             flag = res % 10;
@@ -116,25 +116,35 @@
 //     return 0;
 //
 // }
-int main()
-{
-  int i = 0;
-  int sum = 0;//è®°å½•æ­£æ•´æ•°
-  int num = 0;
-  scanf("%d",&num);
-  for(i = 1; i < num;i++)
-  {
-    int j = 0;
-    for(j = i; j < num ;i++)
-    {
-      sum = sum + j;
-      if(sum == num)
-      {
-        printf("%d\n", j);
-        break;
-      }
-    }
-    sum = 0;
+
+
+
+void primeFactors(int n) {
+  // ÏÈ´¦Àí2µÄÇé¿ö
+  while (n % 2 == 0) {
+    printf("%d ", 2);
+    n /= 2;
   }
+
+  // ´¦ÀíÆæÊıµÄÇé¿ö
+  for (int i = 3; i * i <= n; i += 2) {
+    while (n % i == 0) {
+      printf("%d ", i);
+      n /= i;
+    }
+  }
+
+  // Èç¹ûnÊÇÒ»¸öÖÊÊıÇÒ´óÓÚ2
+  if (n > 2) {
+    printf("%d", n);
+  }
+}
+
+int main() {
+  int n;
+  printf("ÇëÊäÈëÒ»¸öÕıÕûÊı: ");
+  scanf("%d", &n);
+  printf("ÖÊÒòÊıÎª: ");
+  primeFactors(n);
   return 0;
 }
