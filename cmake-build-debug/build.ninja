@@ -55,12 +55,6 @@ build CMakeFiles/Test5.dir/test_6_30.c.obj: C_COMPILER__Test5_unscanned_Debug E$
   OBJECT_DIR = CMakeFiles\Test5.dir
   OBJECT_FILE_DIR = CMakeFiles\Test5.dir
 
-build CMakeFiles/Test5.dir/test_7_2.c.obj: C_COMPILER__Test5_unscanned_Debug E$:/Programs/CLion/Test5/test_7_2.c || cmake_object_order_depends_target_Test5
-  DEP_FILE = CMakeFiles\Test5.dir\test_7_2.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Test5.dir
-  OBJECT_FILE_DIR = CMakeFiles\Test5.dir
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Test5
@@ -69,7 +63,7 @@ build CMakeFiles/Test5.dir/test_7_2.c.obj: C_COMPILER__Test5_unscanned_Debug E$:
 #############################################
 # Link the executable Test5.exe
 
-build Test5.exe: C_EXECUTABLE_LINKER__Test5_Debug CMakeFiles/Test5.dir/test_6_30.c.obj CMakeFiles/Test5.dir/test_7_2.c.obj
+build Test5.exe: C_EXECUTABLE_LINKER__Test5_Debug CMakeFiles/Test5.dir/test_6_30.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Test5.dir
@@ -78,6 +72,39 @@ build Test5.exe: C_EXECUTABLE_LINKER__Test5_Debug CMakeFiles/Test5.dir/test_6_30
   TARGET_FILE = Test5.exe
   TARGET_IMPLIB = libTest5.dll.a
   TARGET_PDB = Test5.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test1
+
+
+#############################################
+# Order-only phony target for test1
+
+build cmake_object_order_depends_target_test1: phony || CMakeFiles/test1.dir
+
+build CMakeFiles/test1.dir/test_7_2.c.obj: C_COMPILER__test1_unscanned_Debug E$:/Programs/CLion/Test5/test_7_2.c || cmake_object_order_depends_target_test1
+  DEP_FILE = CMakeFiles\test1.dir\test_7_2.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test1.dir
+  OBJECT_FILE_DIR = CMakeFiles\test1.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test1
+
+
+#############################################
+# Link the executable test1.exe
+
+build test1.exe: C_EXECUTABLE_LINKER__test1_Debug CMakeFiles/test1.dir/test_7_2.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\test1.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = test1.exe
+  TARGET_IMPLIB = libtest1.dll.a
+  TARGET_PDB = test1.exe.dbg
 
 
 #############################################
@@ -107,6 +134,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build Test5: phony Test5.exe
 
+build test1: phony test1.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -115,7 +144,7 @@ build Test5: phony Test5.exe
 #############################################
 # Folder: E:/Programs/CLion/Test5/cmake-build-debug
 
-build all: phony Test5.exe
+build all: phony Test5.exe test1.exe
 
 # =============================================================================
 # Built-in targets
