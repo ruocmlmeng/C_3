@@ -223,18 +223,18 @@
 //   printf("1024的655次方的最后三位数是: %llu\n", result);
 //   return 0;
 // }
-int main() {
-  int x, y, p, n;
-  printf("说明：底数为x,幂为y，请输入:\n");
-  printf("x=");
-  scanf("%d", &x);
-  printf("y=");
-  scanf("%d", &y);
-  p = 1;
-  for(n = 1; n <= y; n++) {
-    p=p*x%1000; //关键是掌握这句话的意思，最后三位永远只与其乘数的最后三位相关，故只保留最后三位，以免溢出！
-    printf("%3d:  p=%3d \n", n, p);//若不需要输出过程，则不需要此行代码
-  }
-  printf("%d的%d次方的最后三位是：%3d\n", x, y, p);
-  return 0;
-}
+// int main() {
+//   int x, y, p, n;
+//   printf("说明：底数为x,幂为y，请输入:\n");
+//   printf("x=");
+//   scanf("%d", &x);
+//   printf("y=");
+//   scanf("%d", &y);
+//   p = 1;
+//   for(n = 1; n <= y; n++) {
+//     p=p*x%1000; //关键是掌握这句话的意思，最后三位永远只与其乘数的最后三位相关，故只保留最后三位，以免溢出！
+//     printf("%3d:  p=%3d \n", n, p);//若不需要输出过程，则不需要此行代码
+//   }
+//   printf("%d的%d次方的最后三位是：%3d\n", x, y, p);
+//   return 0;
+// }
