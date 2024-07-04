@@ -90,38 +90,171 @@
 //     return 0;
 // }
 
+// int main()
+// {
+//  // int a[7] = {2, 4, -3, 5, -4, 8, -2};
+//  int a[7] = {-2, 4, 3, 5, -4, 8, -2};
+//  int left = 0;
+//  int right = sizeof(a) / sizeof(a[0]) - 1;
+//  int i = 0;
+//  while (left < right)
+//  {
+//   if( a[left] >0 && a[left] * a[right] < 0   )
+//   {
+//     int temp = a[left];
+//     a[left] = a[right];
+//     a[right] = temp;
+//   }
+//   else if(a[left] >0 && a[left] * a[right] > 0)
+//   {
+//    right--;
+//    continue;
+//   }
+//   else if(a[right] <0 && a[left] * a[right] > 0)
+//   {
+//    left++;
+//    continue;
+//   }
+//   left++;
+//   right--;
+//  }
+//  for(i = 0 ; i < sizeof(a) / sizeof(a[0]) ; i++)
+//  {
+//   printf("%d ",a[i]);
+//  }
+//  printf("\n");
+//  return 0;
+// }
+// int main()
+// {
+//  int a[10] = {2,4,1,6,7,9,10,3,5,1};
+//  int max = a[0];
+//  int i = 0;
+//  for(i = 1; i < sizeof(a) / sizeof(a[0]);i++)
+//  {
+//   if(a[i]>max)
+//   {
+//    max = a[i];
+//   }
+//  }
+//  printf("max == %d\n",max);
+//  return 0;
+// }
+// int main()
+// {
+//  int a[10] = {2,4,1,6,7,9,10,3,5,1};
+//  int mul = 1;
+//  int max = a[0];
+//  int i = 0;
+//  for(i = 1; i < sizeof(a) / sizeof(a[0]) ;i++)
+//  {
+//   if(a[i]>max)
+//   {
+//    max = a[i];
+//   }
+//  }
+//  printf("max == %d\n",max);
+//  for(i = 0; i < sizeof(a) / sizeof(a[0])-1 ;i++)
+//  {
+//   int j = 0;
+//   for(j = i+1; j <sizeof(a) / sizeof(a[0]) ; j++ )
+//   {
+//    if(a[i]*a[j] > mul)
+//    {
+//     mul = a[i]*a[j];
+//    }
+//   }
+//  }
+//  printf("第二大的数 == %d\n",mul / max);
+//  return 0;
+// }
+#include <stdint.h>
+// int main()
+// {
+//  int a[10] = {1,2,3,-4,-6,7,5,-100,10,-99};
+//  int sum = 0;
+//  int i = 0;
+//  int sum_max = INT32_MIN ;
+//  int j = 0;
+//  int res = 0;
+//  for(i = 0;i < sizeof(a)/sizeof(a[0])-1 ; i++)
+//  {
+//   sum = 0;
+//   for(j = i+1; j < sizeof(a) / sizeof(a[0]); j++)
+//   {
+//    sum =  sum + (a[i] + a[j]);
+//    if(sum > sum_max)
+//    {
+//     sum_max = sum;
+//    }
+//   }
+//
+//  }
+//  printf("%d\n",sum_max);
+//  return 0;
+// }
+
+// int maxSubArray(int* nums, int numsSize) {
+//  if (numsSize < 2) return 0; // 如果数组元素少于两个，返回0
+//
+//  int max_sum = INT32_MIN;
+//  int current_sum = nums[0] + nums[1];
+//
+//  for (int i = 2; i < numsSize; i++) {
+//   if (current_sum < nums[i - 1]) {
+//    current_sum = nums[i - 1] + nums[i];
+//   } else {
+//    current_sum += nums[i];
+//   }
+//
+//   if (current_sum > max_sum) {
+//    max_sum = current_sum;
+//   }
+//  }
+//
+//  return max_sum;
+// }
+//
+// int main() {
+//  int nums[] = {1, 2, 3, -4, -6, 7, 5, -100, 101, -99};
+//  int numsSize = sizeof(nums) / sizeof(nums[0]);
+//  int max_sum = maxSubArray(nums, numsSize);
+//  printf("最大子数组之和为：%d\n", max_sum);
+//  return 0;
+// }
+
+#include<stdint.h>
+int maxSubArray(int arr[],int arrSize)
+{
+
+ if(arrSize < 2)
+  return 0;
+ int max_sum = INT32_MIN;
+ int current_sum = arr[0] + arr[1];
+ int i = 0;
+ for(i = 2; i < arrSize ;i++)
+ {
+  if(current_sum < arr[i - 1])
+  {
+   current_sum = arr[i - 1] + arr[i];
+  }
+  else
+  {
+   current_sum +=arr[i];
+  }
+  if(current_sum > max_sum)
+  {
+   max_sum = current_sum;
+  }
+ }
+ return max_sum;
+}
+
 int main()
 {
- // int a[7] = {2, 4, -3, 5, -4, 8, -2};
- int a[7] = {-2, 4, 3, 5, -4, 8, -2};
- int left = 0;
- int right = sizeof(a) / sizeof(a[0]) - 1;
- int i = 0;
- while (left < right)
- {
-  if( a[left] >0 && a[left] * a[right] < 0   )
-  {
-    int temp = a[left];
-    a[left] = a[right];
-    a[right] = temp;
-  }
-  else if(a[left] >0 && a[left] * a[right] > 0)
-  {
-   right--;
-   continue;
-  }
-  else if(a[right] <0 && a[left] * a[right] > 0)
-  {
-   left++;
-   continue;
-  }
-  left++;
-  right--;
- }
- for(i = 0 ; i < sizeof(a) / sizeof(a[0]) ; i++)
- {
-  printf("%d ",a[i]);
- }
- printf("\n");
+ int arr[10] = {1,2,3,-4,-6,7,5,-100,101,-99};
+ int arrSize = sizeof(arr) / sizeof(arr[0]);
+ int max_sum = maxSubArray(arr,arrSize);
+ printf("最大子数组之和为:%d\n",max_sum);
  return 0;
 }
