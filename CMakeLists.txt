@@ -8,3 +8,4 @@ add_executable(Test5 test_6_30.c
 add_executable(test1
         test_7_2.c)
 add_executable(test2 test_7_4.c)
+add_executable(test3 test_7_5.c)

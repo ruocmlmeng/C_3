@@ -223,38 +223,158 @@
 //  return 0;
 // }
 
-#include<stdint.h>
-int maxSubArray(int arr[],int arrSize)
+// #include<stdint.h>
+// int maxSubArray(int arr[],int arrSize)
+// {
+//
+//  if(arrSize < 2)
+//   return 0;
+//  int max_sum = INT32_MIN;
+//  int current_sum = arr[0] + arr[1];
+//  int i = 0;
+//  for(i = 2; i < arrSize ;i++)
+//  {
+//   if(current_sum < arr[i - 1])
+//   {
+//    current_sum = arr[i - 1] + arr[i];
+//   }
+//   else
+//   {
+//    current_sum +=arr[i];
+//   }
+//   if(current_sum > max_sum)
+//   {
+//    max_sum = current_sum;
+//   }
+//  }
+//  return max_sum;
+// }
+//
+// int main()
+// {
+//  int arr[10] = {1,2,3,-4,-6,7,5,-100,101,-99};
+//  int arrSize = sizeof(arr) / sizeof(arr[0]);
+//  int max_sum = maxSubArray(arr,arrSize);
+//  printf("最大子数组之和为:%d\n",max_sum);
+//  return 0;
+// }
+// int main()
+// {
+//  int n = 0;//用户要输入的值
+//  printf("请输入一个正整数：\n");
+//  scanf("%d",&n);
+//  int sum = 1;//用来记录区间的和，与n相比较
+//  int i = 0;
+//  int right = 1;
+//  int left = 1;
+//  printf("%d = ",n);
+//  for(i = 0; i <= n / 2 ; i++)
+//  {
+//   if(sum < n)
+//   {
+//    right++;
+//    sum = sum + right;
+//   }
+//   else if(sum > n)
+//   {
+//    sum = sum - left;
+//    left++;
+//   }
+//   else
+//   {
+//    //这种就是找到了
+//    printf("%d,%d\n",left,right);
+//    sum = sum - left;
+//    left++;
+//   }
+//  }
+//  return 0;
+// }
+// int main()
+// {
+//  int n = 0; // 用户要输入的值
+//  printf("请输入一个正整数：\n");
+//  scanf("%d", &n);
+//
+//  if (n <= 0) {
+//   printf("请输入一个正整数。\n");
+//   return 0;
+//  }
+//
+//  int sum = 1; // 用来记录区间的和，与n相比较
+//  int right = 1;
+//  int left = 1;
+//  int found = 0; // 标志是否找到至少一个区间
+//
+//  printf("%d = ", n);
+//  while (left <= n / 2)
+//   {
+//   if (sum < n) {
+//    right++;
+//    sum = sum + right;
+//   } else if (sum > n) {
+//    sum = sum - left;
+//    left++;
+//   } else {
+//    // 找到了一个区间
+//    found = 1;
+//    printf("(");
+//    for (int i = left; i < right; i++) {
+//     printf("%d + ", i);
+//    }
+//    printf("%d)\n", right);
+//    // 调整窗口继续寻找下一个区间
+//    sum = sum - left;
+//    left++;
+//   }
+//  }
+//
+//  if (!found) {
+//   printf("没有找到连续整数区间使其和等于 %d\n", n);
+//  }
+//
+//  return 0;
+// }
+int main()
 {
-
- if(arrSize < 2)
-  return 0;
- int max_sum = INT32_MIN;
- int current_sum = arr[0] + arr[1];
- int i = 0;
- for(i = 2; i < arrSize ;i++)
+ int n = 0;
+ printf("请输入一个正整数：\n");
+ scanf("%d",&n);
+ int left = 1;
+ int right = 1;
+ int sum = 1;
+ while (left <= n/2)
  {
-  if(current_sum < arr[i - 1])
+  if(sum < n)
   {
-   current_sum = arr[i - 1] + arr[i];
+   right++;
+   sum = sum + right;
+  }
+  else if(sum > n)
+  {
+   sum = sum - left;
+   left++;
   }
   else
   {
-   current_sum +=arr[i];
-  }
-  if(current_sum > max_sum)
-  {
-   max_sum = current_sum;
+
+   int i = 0;
+   for(i = left; i <= right;i++)
+   {
+    if(i == right)
+    {
+     printf("%d",i);
+    }
+    else
+    {
+     printf("%d + ",i);
+    }
+
+   }
+   printf("\n");
+    sum = sum - left;
+    left++;
   }
  }
- return max_sum;
-}
-
-int main()
-{
- int arr[10] = {1,2,3,-4,-6,7,5,-100,101,-99};
- int arrSize = sizeof(arr) / sizeof(arr[0]);
- int max_sum = maxSubArray(arr,arrSize);
- printf("最大子数组之和为:%d\n",max_sum);
  return 0;
 }
