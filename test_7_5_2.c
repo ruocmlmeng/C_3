@@ -148,47 +148,114 @@
  * @n：数组的元素个数
  * @x：要插入的数据
  */
-void Insert(int a[],int n,int x)
-{
-  int i = 0;
-  int l = 0;
-  int r = n - 2;//因为给数组赋值多少个元素的时候，会多预留一个空间，那么最右边的下边就需要多减一
-  while (l <= r)
-  {
-    int mid = (l + r) / 2;
-    if(a[mid] > x)
-    {
-     r = mid - 1;
-    }
-   else if( a[mid] < x)
-   {
-     l = mid + 1;
-   }
-  }
-  //找到了要插入的位置的坐标就是 l ，那么就像进行插入操作
-  for(i = n - 2 ; i>=l ; i--)
-  {
-    a[i+1] = a[i];
-  }
-  a[l] = x;
-}
+// void Insert(int a[],int n,int x)
+// {
+//   int i = 0;
+//   int l = 0;
+//   int r = n - 2;//因为给数组赋值多少个元素的时候，会多预留一个空间，那么最右边的下边就需要多减一
+//   while (l <= r)
+//   {
+//     int mid = (l + r) / 2;
+//     if(a[mid] > x)
+//     {
+//      r = mid - 1;
+//     }
+//    else if( a[mid] < x)
+//    {
+//      l = mid + 1;
+//    }
+//   }
+//   //找到了要插入的位置的坐标就是 l ，那么就像进行插入操作
+//   for(i = n - 2 ; i>=l ; i--)
+//   {
+//     a[i+1] = a[i];
+//   }
+//   a[l] = x;
+// }
+// int main()
+// {
+//  int a[N] = {0};
+//  printf("请输入十个正整数:\n");
+//  int i = 0;
+//  int j = 0;
+//  for(i = 0;i < N ;i++)
+//  {
+//   scanf("%d",&a[i]);
+//  }
+//  for(i = 1; i < N ;i++)
+//  {
+//    Insert(a,i + 1,a[i]);
+//  }
+//  for(i = 0;i < N ;i++)
+//  {
+//   printf("%d ",a[i]);
+//  }
+//  return 0;
+// }
+/**
+ *
+* 5.(选做)连续的子数组之和 的最大值.
+      如:
+  1 2 3 -4 -6 7 5 -100 101 -99
+ */
+// int main()
+// {
+//  int a[N] = {0};
+//  printf("请输入十个正整数:\n");
+//  int i = 0;
+//  for(i = 0; i < N ; i++)
+//  {
+//   scanf("%d",&a[i]);
+//  }
+//  int sum = 0;
+//  int max = INT32_MIN;
+//  for(i = 0; i < N; i++)
+//  {
+//     int j = 0;
+//     for(j = i; j < N;j++)
+//     {
+//       sum+=a[j];
+//      if(sum > max)
+//      {
+//        max = sum;
+//      }
+//     }
+//  }
+//  printf("max_sum == %d\n",max);
+//  return 0;
+// }
+
+/*
+ *
+ *	(4).求一个一维数组中,第二大的那个元素的值,也不能使用排序.(不考虑重复的值)
+ *
+ */
 int main()
 {
- int a[N] = {0};
- printf("请输入十个正整数:\n");
- int i = 0;
- int j = 0;
- for(i = 0;i < N ;i++)
- {
-  scanf("%d",&a[i]);
- }
- for(i = 1; i < N ;i++)
- {
-   Insert(a,i + 1,a[i]);
- }
- for(i = 0;i < N ;i++)
- {
-  printf("%d ",a[i]);
- }
- return 0;
+  int a[N] = {0};
+  printf("请输入十个正数:\n");
+  int i = 0;
+  for(i = 0; i < N ;i++)
+  {
+   scanf("%d",&a[i]);
+  }
+  int max = a[0];
+  int max_2;
+  for(i = 0; i < N ; i++)
+  {
+     if(a[i] > max)
+     {
+      max_2 = max;
+      max = a[i];
+     }
+     else
+     {
+       if(a[i] > max_2)
+       {
+         max_2 = a[i];
+       }
+     }
+  }
+  printf("max == %d,max_2 == %d\n",max,max_2);
+  return 0;
 }
