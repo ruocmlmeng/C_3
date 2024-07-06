@@ -10,3 +10,6 @@ add_executable(test1
 add_executable(test2 test_7_4.c)
 add_executable(test3 test_7_5.c)
 add_executable(test4 test_7_5_2.c)
+add_executable(test6
+        test_7_6.c
+        test_7_6.c)
