@@ -152,47 +152,90 @@
  * @n：数组元素的个数
  * @x：要二分查找插入的数
  */
-void Insert(int a[],int n,int x)
-{
-  int l = 0;
-  int r = n - 2;
-  while (l <=r)
-  {
-   int mid = (l + r ) / 2;
-   if(a[mid] > x)
-   {
-    r = mid - 1;
-   }
-   else if(a[mid] < x)
-   {
-    l = mid + 1;
-   }
-  }
-  //找到了之后就进行插入操作
-  int k = 0;
-  for(k = n - 2 ; k >=l;k--)
-  {
-   a[k+1] = a[k];
-  }
-  a[l] = x;
-}
-#define N 10
-int main()
-{
+// void Insert(int a[],int n,int x)
+// {
+//   int l = 0;
+//   int r = n - 2;
+//   while (l <=r)
+//   {
+//    int mid = (l + r ) / 2;
+//    if(a[mid] > x)
+//    {
+//     r = mid - 1;
+//    }
+//    else if(a[mid] < x)
+//    {
+//     l = mid + 1;
+//    }
+//   }
+//   //找到了之后就进行插入操作
+//   int k = 0;
+//   for(k = n - 2 ; k >=l;k--)
+//   {
+//    a[k+1] = a[k];
+//   }
+//   a[l] = x;
+// }
+// #define N 10
+// int main()
+// {
+//  int a[N];
+//  printf("请输入十个数：\n");
+//  int i = 0;
+//  for(i = 0 ; i < N ;i++)
+//  {
+//   scanf("%d",&a[i]);
+//  }
+//  for (i = 1; i < N ;i++)
+//  {
+//    Insert(a,i+1,a[i]);
+//  }
+//  for(i = 0 ; i < N ;i++)
+//  {
+//   printf("%d ",a[i]);
+//  }
+//  return 0;
+// }
+/*
+ *
+ *
+  6.(选做) 数组部分和的问题
+  假设有一个数组a[N] N<=20
+  能不能从数组a中任选M个元素(M<=N),使得其和为K.
+  M,k都是由用户输入
+ *
+ */
+
+int main() {
+ int N, M, K;
+ printf("请输入数组长度N (N<=20): ");
+ scanf("%d", &N);
  int a[N];
- printf("请输入十个数：\n");
- int i = 0;
- for(i = 0 ; i < N ;i++)
- {
-  scanf("%d",&a[i]);
+ printf("请输入数组元素: ");
+ for (int i = 0; i < N; i++) {
+  scanf("%d", &a[i]);
  }
- for (i = 1; i < N ;i++)
- {
-   Insert(a,i+1,a[i]);
+ printf("请输入子集元素个数M (M<=N): ");
+ scanf("%d", &M);
+ printf("请输入目标和K: ");
+ scanf("%d", &K);
+
+ int totalSubsets = 1 << N;  // 2^N个子集
+ for (int i = 0; i < totalSubsets; i++) {//循环每个子集
+  int sum = 0;
+  int count = 0;
+  for (int j = 0; j < N; j++) {
+   if (i & (1 << j)) {  // 判断第j位是否为1
+    sum += a[j];
+    count++;
+   }
+  }
+  if (count == M && sum == K) {
+   printf("存在一个子集和为 %d\n", K);
+   return 0;
+  }
  }
- for(i = 0 ; i < N ;i++)
- {
-  printf("%d ",a[i]);
- }
+
+ printf("不存在满足条件的子集\n");
  return 0;
 }
