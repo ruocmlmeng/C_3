@@ -206,36 +206,148 @@
  *
  */
 
-int main() {
- int N, M, K;
- printf("请输入数组长度N (N<=20): ");
- scanf("%d", &N);
- int a[N];
- printf("请输入数组元素: ");
- for (int i = 0; i < N; i++) {
-  scanf("%d", &a[i]);
- }
- printf("请输入子集元素个数M (M<=N): ");
- scanf("%d", &M);
- printf("请输入目标和K: ");
- scanf("%d", &K);
+// int main() {
+//  int N, M, K;
+//  printf("请输入数组长度N (N<=20): ");
+//  scanf("%d", &N);
+//  int a[N];
+//  printf("请输入数组元素: ");
+//  for (int i = 0; i < N; i++) {
+//   scanf("%d", &a[i]);
+//  }
+//  printf("请输入子集元素个数M (M<=N): ");
+//  scanf("%d", &M);
+//  printf("请输入目标和K: ");
+//  scanf("%d", &K);
+//
+//  int totalSubsets = 1 << N;  // 2^N个子集
+//  for (int i = 0; i < totalSubsets; i++) {//循环每个子集
+//   int sum = 0;
+//   int count = 0;
+//   for (int j = 0; j < N; j++) {
+//    if (i & (1 << j)) {  // 判断第j位是否为1
+//     sum += a[j];
+//     count++;
+//    }
+//   }
+//   if (count == M && sum == K) {
+//    printf("存在一个子集和为 %d\n", K);
+//    return 0;
+//   }
+//  }
+//
+//  printf("不存在满足条件的子集\n");
+//  return 0;
+// }
 
- int totalSubsets = 1 << N;  // 2^N个子集
- for (int i = 0; i < totalSubsets; i++) {//循环每个子集
-  int sum = 0;
-  int count = 0;
-  for (int j = 0; j < N; j++) {
-   if (i & (1 << j)) {  // 判断第j位是否为1
-    sum += a[j];
-    count++;
+/**
+ *
+ * 设计一个函数，求一个整型的二进制形式中，有多少个1
+ */
+/*
+ *
+ * num:求一个整型二进制，有多少个1
+ * @x：输入的整数
+ * 返回值：count>=0 返回1的个数
+ */
+// int num(int x)
+// {
+//   int i = 0;
+//   int count = 0;
+//   for(i = 0; i < sizeof(x) *8 ;i++)
+//   {
+//     if(x & (1<<i))
+//     {
+//      count++;
+//     }
+//   }
+//  return count;
+// }
+// int main()
+// {
+//   int x = 0;
+//   printf("输入一个整数:\n");
+//   scanf("%d",&x);
+//   int res = num(x);
+//   printf("%d的二进制形式中有%d个1\n",x,res);
+//   return 0;
+// }
+/*
+ *   IsArray:判断一个一维的Int类型的数组，是否有序
+ *   @a:函数名
+ *   @n:函数的个数
+ *   返回值：
+ *        0：不是有序
+ *        1 ：有序
+ */
+// int  IsArray(int a[],int n)
+// {
+//  int i = 0;
+//  for (i = 0; i < n - 1;i++)
+//  {
+//      int j = 0;
+//      for(j = i + 1; j < n ; j++)
+//      {
+//        if(a[j] < a[i])
+//        {
+//          return 0;
+//        }
+//      }
+//  }
+//  return 1;
+// }
+// int main()
+// {
+//   int a[5] = {0};
+//   int i = 0;
+//   for (i = 0; i < 5; i++)
+//   {
+//     scanf("%d",&a[i]);
+//   }
+//   int res = IsArray(a,5);
+//   if(res)
+//   {
+//    printf("该数组为有序数组\n");
+//   }
+//   else
+//   {
+//   printf("该数组为无序数组\n");
+//   }
+//   return 0;
+// }
+int  IsArray(int a[],int n)
+{
+ int i = 0;
+ for (i = 0; i < n - 1;i++)
+ {
+  int j = 0;
+  for(j = i + 1; j < n ; j++)
+  {
+   if(a[j] < a[i])
+   {
+    return 0;
    }
   }
-  if (count == M && sum == K) {
-   printf("存在一个子集和为 %d\n", K);
-   return 0;
-  }
  }
-
- printf("不存在满足条件的子集\n");
+ return 1;
+}
+int main()
+{
+ int a[5] = {0};
+ int i = 0;
+ for (i = 0; i < 5; i++)
+ {
+  scanf("%d",&a[i]);
+ }
+ int res = IsArray(a,5);
+ if(res)
+ {
+  printf("该数组为有序数组\n");
+ }
+ else
+ {
+  printf("该数组为无序数组\n");
+ }
  return 0;
 }
+
