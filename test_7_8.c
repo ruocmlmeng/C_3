@@ -125,49 +125,137 @@
     5 6 7 8
     9 10 11 12
 */
-#define M 3
-#define N 4
+// #define M 3
+// #define N 4
+// int main()
+// {
+//  int a[M][N];
+//  int i = 0;
+//  int j = 0;
+//  printf("请输入一个二维数组：\n");
+//  for(i = 0; i < M;i++)
+//  {
+//   for(j = 0; j < N;j++)
+//   {
+//    scanf("%d",&a[i][j]);
+//   }
+//  }
+//  int max = a[0][0];
+//  int min = a[0][0];
+//  int flag = 0;//用来标记最大值的列
+//  for(i = 0;i< M; i++)
+//  {
+//   flag = 0;
+//   for(j = 0 ; j < N;j++)
+//   {
+//    if(a[i][j] > max)
+//    {
+//     max = a[i][j];
+//     flag = j;
+//    }
+//   }
+//   min = a[0][flag];
+//   int k = 0;
+//   for (k = i + 1; k< M ;k++)
+//   {
+//     if(a[k][flag] < min )
+//     {
+//      min = a[k][flag];
+//     }
+//   }
+//   printf("%d %d \n",max,min);
+//   if(min == max)
+//   {
+//    printf("%d\n",max);
+//   }
+//  }
+//  return 0;
+// }
+/*
+2.占座位的问题.
+  如:
+    1 1 0 0 0 0 1 1 0 0 0
+    0 0 0 0 1 1 0 0 0 0 1
+    1 0 1 0 0 0 1 1 0 0 0
+    0 0 0 1 1 1 0 0 0 0 0
+    输入3: 3 表示连续的3个空位,不能够换行
+    输出: 17
+*/
+#include<stdio.h>
+#define M 4
+#define N 12
 int main()
 {
- int a[M][N];
+ int a[M][N] = {
+  {1,1,0,0,0,0,0,1,1,0,0,0},
+  {0,0,0,0,0,1,1,0,0,0,0,1},
+  {1,0,1,0,0,0,0,1,1,0,0,0},
+  {0,0,0,1,1,1,0,0,0,0,0,0}
+ };
  int i = 0;
  int j = 0;
- printf("请输入一个二维数组：\n");
- for(i = 0; i < M;i++)
+ int n = 0;//定义座位
+ printf("请输入要连续占几个座位:\n");
+ scanf("%d",&n);
+ int sum = 0;//累加上每一行符合条件的位置
+ int count = 0;//计算一行中符合的位置的数量
+ int flag = 0;//计算连续空位的数量
+ for(i = 0; i < M ;i++)
  {
+  count = 0;
+  flag = 0;
   for(j = 0; j < N;j++)
   {
-   scanf("%d",&a[i][j]);
-  }
- }
- int max = a[0][0];
- int min = a[0][0];
- int flag = 0;//用来标记最大值的列
- for(i = 0;i< M; i++)
- {
-  flag = 0;
-  for(j = 0 ; j < N;j++)
-  {
-   if(a[i][j] > max)
+   if(a[i][j] == 0)
    {
-    max = a[i][j];
-    flag = j;
+    flag++;
+    if(flag == n)
+    {
+     count++;
+     flag = 0;
+     j = j - (n - 1);
+    }
+   }
+   if(a[i][j]==1)
+   {
+    flag = 0;
    }
   }
-  min = a[0][flag];
-  int k = 0;
-  for (k = i + 1; k< M ;k++)
-  {
-    if(a[k][flag] < min )
-    {
-     min = a[k][flag];
-    }
-  }
-  printf("%d %d \n",max,min);
-  if(min == max)
-  {
-   printf("%d\n",max);
-  }
+  sum+=count;
  }
+ printf("满足条件的座位一共有%d个\n",sum);
  return 0;
 }
+// #define M 4
+// #define N 12
+// int main() {
+//     int a[M][N] = {
+//         {1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+//         {0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1},
+//         {1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+//         {0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0}
+//     };
+//     int i, j, n;
+//     printf("请输入要连续占几个座位:\n");
+//     scanf("%d", &n);
+//     int sum = 0;
+//
+//     for (i = 0; i < M; i++) {
+//         int count = 0;
+//         int flag = 0;
+//         for (j = 0; j < N; j++) {
+//             if (a[i][j] == 0) {
+//                 flag++;
+//                 if (flag == n) {
+//                     count++;
+//                     flag--;  // 继续检查重叠位置
+//                 }
+//             } else {
+//                 flag = 0;
+//             }
+//         }
+//         sum += count;
+//     }
+//     printf("满足条件的座位一共有 %d 个\n", sum);
+//     return 0;
+// }
