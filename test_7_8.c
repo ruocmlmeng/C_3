@@ -46,35 +46,7 @@
 //     }
 //     return 0;
 // }
-/*
- *
- * 矩阵的乘法
- */
-// void arr(int a[][],int row,int col)
-// {
-//     int i = 0;
-//     int j = 0;
-//     for (i = 0; i < row; i++)
-//     {
-//         for (j = 0; j < col ;j++)
-//         {
-//             scanf("%d",&a[i][j]);
-//         }
-//     }
-// }
-// int main()
-// {
-//     int row1 = 0;
-//     int col1 = 0;
-//     int row2 = 0;
-//     int col2 = 0;
-//     printf("请输入第一组矩阵的行和列:");
-//     scanf("%d%d",&row1,&col1);
-//     int i = 0;
-//     int j = 0;
-//     for ()
-//     return 0;
-// }
+
 /*
  *
  *     1.求一个二维数组中山顶元素的个数.
@@ -181,51 +153,51 @@
     输入3: 3 表示连续的3个空位,不能够换行
     输出: 17
 */
-#include<stdio.h>
-#define M 4
-#define N 12
-int main()
-{
- int a[M][N] = {
-  {1,1,0,0,0,0,0,1,1,0,0,0},
-  {0,0,0,0,0,1,1,0,0,0,0,1},
-  {1,0,1,0,0,0,0,1,1,0,0,0},
-  {0,0,0,1,1,1,0,0,0,0,0,0}
- };
- int i = 0;
- int j = 0;
- int n = 0;//定义座位
- printf("请输入要连续占几个座位:\n");
- scanf("%d",&n);
- int sum = 0;//累加上每一行符合条件的位置
- int count = 0;//计算一行中符合的位置的数量
- int flag = 0;//计算连续空位的数量
- for(i = 0; i < M ;i++)
- {
-  count = 0;
-  flag = 0;
-  for(j = 0; j < N;j++)
-  {
-   if(a[i][j] == 0)
-   {
-    flag++;
-    if(flag == n)
-    {
-     count++;
-     flag = 0;
-     j = j - (n - 1);
-    }
-   }
-   if(a[i][j]==1)
-   {
-    flag = 0;
-   }
-  }
-  sum+=count;
- }
- printf("满足条件的座位一共有%d个\n",sum);
- return 0;
-}
+// #include<stdio.h>
+// #define M 4
+// #define N 12
+// int main()
+// {
+//  int a[M][N] = {
+//   {1,1,0,0,0,0,0,1,1,0,0,0},
+//   {0,0,0,0,0,1,1,0,0,0,0,1},
+//   {1,0,1,0,0,0,0,1,1,0,0,0},
+//   {0,0,0,1,1,1,0,0,0,0,0,0}
+//  };
+//  int i = 0;
+//  int j = 0;
+//  int n = 0;//定义座位
+//  printf("请输入要连续占几个座位:\n");
+//  scanf("%d",&n);
+//  int sum = 0;//累加上每一行符合条件的位置
+//  int count = 0;//计算一行中符合的位置的数量
+//  int flag = 0;//计算连续空位的数量
+//  for(i = 0; i < M ;i++)
+//  {
+//   count = 0;
+//   flag = 0;
+//   for(j = 0; j < N;j++)
+//   {
+//    if(a[i][j] == 0)
+//    {
+//     flag++;
+//     if(flag == n)
+//     {
+//      count++;
+//      flag = 0;
+//      j = j - (n - 1);
+//     }
+//    }
+//    if(a[i][j]==1)
+//    {
+//     flag = 0;
+//    }
+//   }
+//   sum+=count;
+//  }
+//  printf("满足条件的座位一共有%d个\n",sum);
+//  return 0;
+// }
 // #define M 4
 // #define N 12
 // int main() {
@@ -259,3 +231,73 @@ int main()
 //     printf("满足条件的座位一共有 %d 个\n", sum);
 //     return 0;
 // }
+
+/*
+ *
+ * 矩阵的乘法
+ */
+void Init_arr(int a[][4],int row,int col)
+{
+    int i = 0;
+    int j = 0;
+    for (i = 0; i < row; i++)
+    {
+        for (j = 0; j < col ;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+}
+int main()
+{
+    int row1 = 0;
+    int col1 = 0;
+    int row2 = 0;
+    int col2 = 0;
+    printf("请输入第一组矩阵的行和列:");
+    scanf("%d%d",&row1,&col1);
+    int i = 0;
+    int j = 0;
+    int firstArray[row1][col1];
+    Init_arr(firstArray,row1,col1);
+
+    printf("请输入第二组矩阵的行和列:");
+    scanf("%d%d",&row2,&col2);
+    int secendArray[row2][col2] ;
+    Init_arr(secendArray,row2,col2);
+
+    //检查矩阵乘法条件
+    if(col1!=row2)
+    {
+        printf("矩阵不能相乘，第一矩阵的列数必须等于第二矩阵的行数。\n");
+    }
+    int resultArray[row1][col2] ;
+    // 初始化结果矩阵
+    for (i = 0; i < row1; i++) {
+        for (j = 0; j < col2; j++) {
+            resultArray[i][j] = 0;
+        }
+    }
+    int k = 0;
+    for(i = 0; i < row1 ;i++)
+    {
+        for(j = 0; j < col2; j++)
+        {
+            for(k = 0; k < col1;k++)
+            {
+                resultArray[i][j] += firstArray[i][k] * secendArray[k][j];
+            }
+        }
+    }
+
+    //遍历目标数组
+    for (i = 0; i < row1;i++)
+    {
+        for(j = 0; j < col2;j++)
+        {
+            printf("%d ",resultArray[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
