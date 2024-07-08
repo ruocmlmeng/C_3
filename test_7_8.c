@@ -236,68 +236,92 @@
  *
  * 矩阵的乘法
  */
-void Init_arr(int a[][4],int row,int col)
-{
-    int i = 0;
-    int j = 0;
-    for (i = 0; i < row; i++)
-    {
-        for (j = 0; j < col ;j++)
-        {
-            scanf("%d",&a[i][j]);
-        }
-    }
-}
+// void Init_arr(int a[][4],int row,int col)
+// {
+//     int i = 0;
+//     int j = 0;
+//     for (i = 0; i < row; i++)
+//     {
+//         for (j = 0; j < col ;j++)
+//         {
+//             scanf("%d",&a[i][j]);
+//         }
+//     }
+// }
+// int main()
+// {
+//     int row1 = 0;
+//     int col1 = 0;
+//     int row2 = 0;
+//     int col2 = 0;
+//     printf("请输入第一组矩阵的行和列:");
+//     scanf("%d%d",&row1,&col1);
+//     int i = 0;
+//     int j = 0;
+//     int firstArray[row1][col1];
+//     Init_arr(firstArray,row1,col1);
+//
+//     printf("请输入第二组矩阵的行和列:");
+//     scanf("%d%d",&row2,&col2);
+//     int secendArray[row2][col2] ;
+//     Init_arr(secendArray,row2,col2);
+//
+//     //检查矩阵乘法条件
+//     if(col1!=row2)
+//     {
+//         printf("矩阵不能相乘，第一矩阵的列数必须等于第二矩阵的行数。\n");
+//     }
+//     int resultArray[row1][col2] ;
+//     // 初始化结果矩阵
+//     for (i = 0; i < row1; i++) {
+//         for (j = 0; j < col2; j++) {
+//             resultArray[i][j] = 0;
+//         }
+//     }
+//     int k = 0;
+//     for(i = 0; i < row1 ;i++)
+//     {
+//         for(j = 0; j < col2; j++)
+//         {
+//             for(k = 0; k < col1;k++)
+//             {
+//                 resultArray[i][j] += firstArray[i][k] * secendArray[k][j];
+//             }
+//         }
+//     }
+//
+//     //遍历目标数组
+//     for (i = 0; i < row1;i++)
+//     {
+//         for(j = 0; j < col2;j++)
+//         {
+//             printf("%d ",resultArray[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     return 0;
+// }
 int main()
 {
-    int row1 = 0;
-    int col1 = 0;
-    int row2 = 0;
-    int col2 = 0;
-    printf("请输入第一组矩阵的行和列:");
-    scanf("%d%d",&row1,&col1);
+    char b[17] = "0123456789ABCDEF";
+    char c[64];
+    int d, base;
+    long n;
+    printf("Enter a number:\n");
+    scanf("%ld", &n);
+
+    base = 16; // 指定要转换的目标进制，这里是十六进制
     int i = 0;
-    int j = 0;
-    int firstArray[row1][col1];
-    Init_arr(firstArray,row1,col1);
-
-    printf("请输入第二组矩阵的行和列:");
-    scanf("%d%d",&row2,&col2);
-    int secendArray[row2][col2] ;
-    Init_arr(secendArray,row2,col2);
-
-    //检查矩阵乘法条件
-    if(col1!=row2)
-    {
-        printf("矩阵不能相乘，第一矩阵的列数必须等于第二矩阵的行数。\n");
+    do {
+        c[i] = n % base; // 计算余数，存储在数组 c 中
+        i++;
+        n = n / base; // 更新 n，进行下一轮循环
+    } while (n != 0);
+    printf("Transmit to new base:\n");
+    for (--i; i >= 0; i--) {
+        d = c[i];
+        printf("%c", b[d]); // 根据余数在 b 数组中找到对应的十六进制字符并输出
     }
-    int resultArray[row1][col2] ;
-    // 初始化结果矩阵
-    for (i = 0; i < row1; i++) {
-        for (j = 0; j < col2; j++) {
-            resultArray[i][j] = 0;
-        }
-    }
-    int k = 0;
-    for(i = 0; i < row1 ;i++)
-    {
-        for(j = 0; j < col2; j++)
-        {
-            for(k = 0; k < col1;k++)
-            {
-                resultArray[i][j] += firstArray[i][k] * secendArray[k][j];
-            }
-        }
-    }
-
-    //遍历目标数组
-    for (i = 0; i < row1;i++)
-    {
-        for(j = 0; j < col2;j++)
-        {
-            printf("%d ",resultArray[i][j]);
-        }
-        printf("\n");
-    }
+    printf("\n");
     return 0;
 }
