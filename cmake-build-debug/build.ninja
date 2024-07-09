@@ -271,6 +271,39 @@ build test7.exe: C_EXECUTABLE_LINKER__test7_Debug CMakeFiles/test7.dir/test_7_8.
   TARGET_IMPLIB = libtest7.dll.a
   TARGET_PDB = test7.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test8
+
+
+#############################################
+# Order-only phony target for test8
+
+build cmake_object_order_depends_target_test8: phony || CMakeFiles/test8.dir
+
+build CMakeFiles/test8.dir/test_7_9.c.obj: C_COMPILER__test8_unscanned_Debug E$:/Programs/CLion/Test5/test_7_9.c || cmake_object_order_depends_target_test8
+  DEP_FILE = CMakeFiles\test8.dir\test_7_9.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test8.dir
+  OBJECT_FILE_DIR = CMakeFiles\test8.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test8
+
+
+#############################################
+# Link the executable test8.exe
+
+build test8.exe: C_EXECUTABLE_LINKER__test8_Debug CMakeFiles/test8.dir/test_7_9.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\test8.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = test8.exe
+  TARGET_IMPLIB = libtest8.dll.a
+  TARGET_PDB = test8.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -311,6 +344,8 @@ build test6: phony test6.exe
 
 build test7: phony test7.exe
 
+build test8: phony test8.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -319,7 +354,7 @@ build test7: phony test7.exe
 #############################################
 # Folder: E:/Programs/CLion/Test5/cmake-build-debug
 
-build all: phony Test5.exe test1.exe test2.exe test3.exe test4.exe test6.exe test7.exe
+build all: phony Test5.exe test1.exe test2.exe test3.exe test4.exe test6.exe test7.exe test8.exe
 
 # =============================================================================
 # Built-in targets
