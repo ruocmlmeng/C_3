@@ -52,58 +52,91 @@
 
 */
 #include<stdio.h>
-#define N 6
+// #define N 6
+// /*
+//   Print_YH_triangle:打印出杨辉三角形
+//   @a	:数组名
+//   @n	:传入要打印多少行杨辉三角
+//   返回值:
+//       无
+// */
+// void Print_YH_triangle(int a[][N],int n)
+// {
+//   int i = 0;
+//   int j = 0;
+//   //初始化二维数组
+//   for(i = 0; i < n ; i++)
+//   {
+//     for(j = 0;j < n ;j++)
+//     {
+//       a[i][j] = 0;
+//     }
+//   }
+//   for(i = 0; i < n;i++)
+//   {
+//
+//     for(j = 0; j <= i ;j++)
+//     {
+//       if(i == j)
+//       {
+//         a[i][j] = 1;
+//       }
+//       if(j == 0)
+//       {
+//         a[i][j] = 1;
+//       }
+//       if(i >= 2 && j >=1)
+//       {
+//         a[i][j] = a[i - 1][j] + a[i - 1][j - 1];
+//       }
+//     }
+//   }
+//   for(i = 0; i < n; i++)
+//   {
+//
+//     for(j = 0 ; j <=i ;j++)
+//     {
+//       printf("%d ",a[i][j]);
+//     }
+//     printf("\n");
+//   }
+// }
+// int main()
+// {
+//   int a[N][N];
+//   Print_YH_triangle(a,N);
+//   return 0;
+// }
 /*
-  Print_YH_triangle:打印出杨辉三角形
-  @a	:数组名
-  @n	:传入要打印多少行杨辉三角
-  返回值:
-      无
+  2.写一个函数,求一个整数的二进制形式中有多少个1?
 */
-void Print_YH_triangle(int a[][N],int n)
+#include<stdio.h>
+
+/*
+  count_one:求一个整数的二进制形式有多少个1
+  @num	:传入函数的整数
+  返回值 	: 整数二进制中二的个数
+*/
+int count_one(int num)
 {
   int i = 0;
-  int j = 0;
-  //初始化二维数组
-  for(i = 0; i < n ; i++)
+  int count = 0;//记录整数中1的个数
+  for(i = 0; i < sizeof(num)*8 ; i++)
   {
-    for(j = 0;j < n ;j++)
+    if(num & (1 << i))
     {
-      a[i][j] = 0;
+      count++;
     }
   }
-  for(i = 0; i < n;i++)
-  {
-
-    for(j = 0; j <= i ;j++)
-    {
-      if(i == j)
-      {
-        a[i][j] = 1;
-      }
-      if(j == 0)
-      {
-        a[i][j] = 1;
-      }
-      if(i >= 2 && j >=1)
-      {
-        a[i][j] = a[i - 1][j] + a[i - 1][j - 1];
-      }
-    }
-  }
-  for(i = 0; i < n; i++)
-  {
-
-    for(j = 0 ; j <=i ;j++)
-    {
-      printf("%d ",a[i][j]);
-    }
-    printf("\n");
-  }
+  return count;
 }
 int main()
 {
-  int a[N][N];
-  Print_YH_triangle(a,N);
+  int num  = 0;
+  printf("请输入一个整数:\n");
+  scanf("%d",&num);
+  int res = count_one(num);
+  printf("%d中有%d个\n",num,res);
   return 0;
 }
+
