@@ -182,66 +182,102 @@ int Is_symmesry_vertical(int a[][N],int n)
     对称: 1
     不对称: 0
 */
-int Is_symmesry_level(int a[][N],int n)
+// int Is_symmesry_level(int a[][N],int n)
+// {
+//   int i = 0;
+//   int j = 0;
+//   int count = 0;//判断垂直一共有多少对
+//   for(i = 0; i < M / 2 ;i++)
+//   {
+//     for(j = 0; j < n;j++)
+//     {
+//       if(a[i][j] == a[M - i - 1][j])
+//       {
+//         count++;
+//       }
+//     }
+//   }
+//   if(count == N * (M / 2))
+//   {
+//     return 1;
+//   }
+//   else
+//   {
+//     return 0;
+//   }
+// }
+//
+// /*
+//   Init_Arr: 初始化一个二维数组
+//   @a	: 函数名
+//   @n	: 二维数组的列数
+//   返回值
+//       无
+// */
+// void Init_Arr(int a[][N],int n)
+// {
+//   int i = 0;
+//   int j = 0;
+//   for(i = 0; i < M;i++)
+//   {
+//     for(j = 0 ; j < n; j++)
+//     {
+//       scanf("%d",&a[i][j]);
+//     }
+//   }
+// }
+//
+// int main()
+// {
+//   int a[M][N];
+//   Init_Arr(a,N);
+//   int res = Is_symmesry_level(a,N);
+//   int res2  =Is_symmesry_vertical(a,N);
+//   if(res || res2)
+//   {
+//     printf("该二维数组为对称数组!\n");
+//   }
+//   else
+//   {
+//     printf("该二维数组不是对称数组!\n");
+//   }
+//   return 0;
+// }
+
+/*
+ *用递归求整数数组的和
+ *
+ */
+/*
+ *
+ *  sum_Arr:递归求整型数组的和
+ *  @a：数组名
+ *  @n：数组的个数
+ *  返回值：
+ *      整个数组的和
+ */
+#define N 5
+int sum_Arr(int a[],int n )
 {
-  int i = 0;
-  int j = 0;
-  int count = 0;//判断垂直一共有多少对
-  for(i = 0; i < M / 2 ;i++)
-  {
-    for(j = 0; j < n;j++)
-    {
-      if(a[i][j] == a[M - i - 1][j])
-      {
-        count++;
-      }
-    }
-  }
-  if(count == N * (M / 2))
-  {
-    return 1;
-  }
-  else
+  if( n <= 0)
   {
     return 0;
   }
-}
-
-/*
-  Init_Arr: 初始化一个二维数组
-  @a	: 函数名
-  @n	: 二维数组的列数
-  返回值
-      无
-*/
-void Init_Arr(int a[][N],int n)
-{
-  int i = 0;
-  int j = 0;
-  for(i = 0; i < M;i++)
-  {
-    for(j = 0 ; j < n; j++)
-    {
-      scanf("%d",&a[i][j]);
-    }
-  }
-}
-
-int main()
-{
-  int a[M][N];
-  Init_Arr(a,N);
-  int res = Is_symmesry_level(a,N);
-  int res2  =Is_symmesry_vertical(a,N);
-  if(res || res2)
-  {
-    printf("该二维数组为对称数组!\n");
-  }
   else
   {
-    printf("该二维数组不是对称数组!\n");
+    return a[n-1] + sum_Arr(a,n - 1);
   }
+
+}
+int main()
+{
+  int a[N];
+  int i = 0;
+  for(i = 0; i < N ;i++)
+  {
+    scanf("%d",&a[i]);
+  }
+  int res = sum_Arr(a,N);
+  printf("数组的和为%d\n",res);
   return 0;
 }
-
-
