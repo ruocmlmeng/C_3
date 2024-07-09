@@ -301,27 +301,82 @@
 //     }
 //     return 0;
 // }
+// int main()
+// {
+//     char b[17] = "0123456789ABCDEF";
+//     char c[64];
+//     int d, base;
+//     long n;
+//     printf("Enter a number:\n");
+//     scanf("%ld", &n);
+//
+//     base = 16; // 指定要转换的目标进制，这里是十六进制
+//     int i = 0;
+//     do {
+//         c[i] = n % base; // 计算余数，存储在数组 c 中
+//         i++;
+//         n = n / base; // 更新 n，进行下一轮循环
+//     } while (n != 0);
+//     printf("Transmit to new base:\n");
+//     for (--i; i >= 0; i--) {
+//         d = c[i];
+//         printf("%c", b[d]); // 根据余数在 b 数组中找到对应的十六进制字符并输出
+//     }
+//     printf("\n");
+//     return 0;
+// }
+/*
+2.占座位的问题.
+  如:
+    1 1 0 0 0 0 1 1 0 0 0
+    0 0 0 0 1 1 0 0 0 0 1
+    1 0 1 0 0 0 1 1 0 0 0
+    0 0 0 1 1 1 0 0 0 0 0
+       输入3: 3 表示连续的3个空位,不能够换行
+    输出: 17
+*/
+#include<stdio.h>
+#define M 4
+#define N 12
 int main()
 {
-    char b[17] = "0123456789ABCDEF";
-    char c[64];
-    int d, base;
-    long n;
-    printf("Enter a number:\n");
-    scanf("%ld", &n);
-
-    base = 16; // 指定要转换的目标进制，这里是十六进制
+    int a[M][N] = {
+        {1,1,0,0,0,0,0,1,1,0,0,0},
+        {0,0,0,0,0,1,1,0,0,0,0,1},
+        {1,0,1,0,0,0,0,1,1,0,0,0},
+        {0,0,0,1,1,1,0,0,0,0,0,0}
+    };
     int i = 0;
-    do {
-        c[i] = n % base; // 计算余数，存储在数组 c 中
-        i++;
-        n = n / base; // 更新 n，进行下一轮循环
-    } while (n != 0);
-    printf("Transmit to new base:\n");
-    for (--i; i >= 0; i--) {
-        d = c[i];
-        printf("%c", b[d]); // 根据余数在 b 数组中找到对应的十六进制字符并输出
+    int j = 0;
+    int n = 0;//定义座位
+    printf("请输入要连续占几个座位:\n");
+    scanf("%d",&n);
+    int sum = 0;//累加上每一行符合条件的位置
+    int count = 0;//计算一行中符合的位置的数量
+    int flag = 0;//计算连续空位的数量
+    for(i = 0; i < M ;i++)
+    {
+        count = 0;
+        flag = 0;
+        for(j = 0; j < N;j++)
+        {
+            if(a[i][j] == 0)
+            {
+                flag++;
+                if(flag == n)
+                {
+                    count++;
+                    flag = 0;
+                    j = j - (n  - 1);//找到了往后回退
+                }
+            }
+            if(a[i][j]==1)
+            {
+                flag = 0;
+            }
+        }
+        sum+=count;
     }
-    printf("\n");
+    printf("满足条件的座位一共有%d个\n",sum);
     return 0;
 }
