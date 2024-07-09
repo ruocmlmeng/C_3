@@ -29,7 +29,7 @@
 //     }
 //     for (i = 0;i < 10; i++)
 //     {
-//         // for (j = 0; j < 10 - i - 1; j++)  // æ‰“å°å‰é¢çš„ç©ºæ ¼
+//         // for (j = 0; j < 10 - i - 1; j++)  // ´òÓ¡Ç°ÃæµÄ¿Õ¸ñ
 //         // {
 //         //     printf(" ");
 //         // }
@@ -42,7 +42,7 @@
 //     return 0;
 // }
 /*
-  æ‰“å°æ¨è¾‰ä¸‰è§’å½¢
+  ´òÓ¡Ñî»ÔÈı½ÇĞÎ
   1
   1 1
   1 2 1
@@ -54,17 +54,17 @@
 #include<stdio.h>
 // #define N 6
 // /*
-//   Print_YH_triangle:æ‰“å°å‡ºæ¨è¾‰ä¸‰è§’å½¢
-//   @a	:æ•°ç»„å
-//   @n	:ä¼ å…¥è¦æ‰“å°å¤šå°‘è¡Œæ¨è¾‰ä¸‰è§’
-//   è¿”å›å€¼:
-//       æ— 
+//   Print_YH_triangle:´òÓ¡³öÑî»ÔÈı½ÇĞÎ
+//   @a	:Êı×éÃû
+//   @n	:´«ÈëÒª´òÓ¡¶àÉÙĞĞÑî»ÔÈı½Ç
+//   ·µ»ØÖµ:
+//       ÎŞ
 // */
 // void Print_YH_triangle(int a[][N],int n)
 // {
 //   int i = 0;
 //   int j = 0;
-//   //åˆå§‹åŒ–äºŒç»´æ•°ç»„
+//   //³õÊ¼»¯¶şÎ¬Êı×é
 //   for(i = 0; i < n ; i++)
 //   {
 //     for(j = 0;j < n ;j++)
@@ -108,35 +108,140 @@
 //   return 0;
 // }
 /*
-  2.å†™ä¸€ä¸ªå‡½æ•°,æ±‚ä¸€ä¸ªæ•´æ•°çš„äºŒè¿›åˆ¶å½¢å¼ä¸­æœ‰å¤šå°‘ä¸ª1?
+  2.Ğ´Ò»¸öº¯Êı,ÇóÒ»¸öÕûÊıµÄ¶ş½øÖÆĞÎÊ½ÖĞÓĞ¶àÉÙ¸ö1?
 */
 #include<stdio.h>
 
 /*
-  count_one:æ±‚ä¸€ä¸ªæ•´æ•°çš„äºŒè¿›åˆ¶å½¢å¼æœ‰å¤šå°‘ä¸ª1
-  @num	:ä¼ å…¥å‡½æ•°çš„æ•´æ•°
-  è¿”å›å€¼ 	: æ•´æ•°äºŒè¿›åˆ¶ä¸­äºŒçš„ä¸ªæ•°
+  count_one:ÇóÒ»¸öÕûÊıµÄ¶ş½øÖÆĞÎÊ½ÓĞ¶àÉÙ¸ö1
+  @num	:´«Èëº¯ÊıµÄÕûÊı
+  ·µ»ØÖµ 	: ÕûÊı¶ş½øÖÆÖĞ¶şµÄ¸öÊı
 */
-int count_one(int num)
+// int count_one(int num)
+// {
+//   int i = 0;
+//   int count = 0;//¼ÇÂ¼ÕûÊıÖĞ1µÄ¸öÊı
+//   for(i = 0; i < sizeof(num)*8 ; i++)
+//   {
+//     if(num & (1 << i))
+//     {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+// int main()
+// {
+//   int num  = 0;
+//   printf("ÇëÊäÈëÒ»¸öÕûÊı:\n");
+//   scanf("%d",&num);
+//   int res = count_one(num);
+//   printf("%dÖĞÓĞ%d¸ö\n",num,res);
+//   return 0;
+// }
+#include<stdio.h>
+#define M 3
+#define N 4
+/*
+  Is_symmesry_vertical: ÅĞ¶ÏÒ»¸ö¶şÎ¬Êı×éÊÇ·ñË®Æ½¶Ô³Æ
+  @a	: º¯ÊıÃû
+  @n	: ¶şÎ¬Êı×éµÄÁĞÊı
+  ·µ»ØÖµ
+    ¶Ô³Æ: 1
+    ²»¶Ô³Æ: 0
+*/
+int Is_symmesry_vertical(int a[][N],int n)
 {
   int i = 0;
-  int count = 0;//è®°å½•æ•´æ•°ä¸­1çš„ä¸ªæ•°
-  for(i = 0; i < sizeof(num)*8 ; i++)
+  int j = 0;
+  int count = 0;//ÅĞ¶ÏË®Æ½Ò»¹²ÓĞ¶àÉÙ¶Ô
+  for(i = 0; i < M ;i++)
   {
-    if(num & (1 << i))
+    for(j = 0; j < n / 2;j++)
     {
-      count++;
+      if(a[i][j] == a[i][n - j -1])
+      {
+        count++;
+      }
     }
   }
-  return count;
+  if(count == M * (n / 2))
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
 }
+/*
+  Is_symmesry_level: ÅĞ¶ÏÒ»¸ö¶şÎ¬Êı×éÊÇ·ñË®Æ½¶Ô³Æ
+  @a	: º¯ÊıÃû
+  @n	: ¶şÎ¬Êı×éµÄÁĞÊı
+  ·µ»ØÖµ
+    ¶Ô³Æ: 1
+    ²»¶Ô³Æ: 0
+*/
+int Is_symmesry_level(int a[][N],int n)
+{
+  int i = 0;
+  int j = 0;
+  int count = 0;//ÅĞ¶Ï´¹Ö±Ò»¹²ÓĞ¶àÉÙ¶Ô
+  for(i = 0; i < M / 2 ;i++)
+  {
+    for(j = 0; j < n;j++)
+    {
+      if(a[i][j] == a[M - i - 1][j])
+      {
+        count++;
+      }
+    }
+  }
+  if(count == N * (M / 2))
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
+/*
+  Init_Arr: ³õÊ¼»¯Ò»¸ö¶şÎ¬Êı×é
+  @a	: º¯ÊıÃû
+  @n	: ¶şÎ¬Êı×éµÄÁĞÊı
+  ·µ»ØÖµ
+      ÎŞ
+*/
+void Init_Arr(int a[][N],int n)
+{
+  int i = 0;
+  int j = 0;
+  for(i = 0; i < M;i++)
+  {
+    for(j = 0 ; j < n; j++)
+    {
+      scanf("%d",&a[i][j]);
+    }
+  }
+}
+
 int main()
 {
-  int num  = 0;
-  printf("è¯·è¾“å…¥ä¸€ä¸ªæ•´æ•°:\n");
-  scanf("%d",&num);
-  int res = count_one(num);
-  printf("%dä¸­æœ‰%dä¸ª\n",num,res);
+  int a[M][N];
+  Init_Arr(a,N);
+  int res = Is_symmesry_level(a,N);
+  int res2  =Is_symmesry_vertical(a,N);
+  if(res || res2)
+  {
+    printf("¸Ã¶şÎ¬Êı×éÎª¶Ô³ÆÊı×é!\n");
+  }
+  else
+  {
+    printf("¸Ã¶şÎ¬Êı×é²»ÊÇ¶Ô³ÆÊı×é!\n");
+  }
   return 0;
 }
+
 
