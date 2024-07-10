@@ -139,41 +139,41 @@
 //   printf("%d中有%d个\n",num,res);
 //   return 0;
 // }
-#include<stdio.h>
-#define M 3
-#define N 4
-/*
-  Is_symmesry_vertical: 判断一个二维数组是否水平对称
-  @a	: 函数名
-  @n	: 二维数组的列数
-  返回值
-    对称: 1
-    不对称: 0
-*/
-int Is_symmesry_vertical(int a[][N],int n)
-{
-  int i = 0;
-  int j = 0;
-  int count = 0;//判断水平一共有多少对
-  for(i = 0; i < M ;i++)
-  {
-    for(j = 0; j < n / 2;j++)
-    {
-      if(a[i][j] == a[i][n - j -1])
-      {
-        count++;
-      }
-    }
-  }
-  if(count == M * (n / 2))
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
-}
+// #include<stdio.h>
+// #define M 3
+// #define N 4
+// /*
+//   Is_symmesry_vertical: 判断一个二维数组是否水平对称
+//   @a	: 函数名
+//   @n	: 二维数组的列数
+//   返回值
+//     对称: 1
+//     不对称: 0
+// */
+// int Is_symmesry_vertical(int a[][N],int n)
+// {
+//   int i = 0;
+//   int j = 0;
+//   int count = 0;//判断水平一共有多少对
+//   for(i = 0; i < M ;i++)
+//   {
+//     for(j = 0; j < n / 2;j++)
+//     {
+//       if(a[i][j] == a[i][n - j -1])
+//       {
+//         count++;
+//       }
+//     }
+//   }
+//   if(count == M * (n / 2))
+//   {
+//     return 1;
+//   }
+//   else
+//   {
+//     return 0;
+//   }
+// }
 /*
   Is_symmesry_level: 判断一个二维数组是否水平对称
   @a	: 函数名
@@ -357,40 +357,168 @@ int Is_symmesry_vertical(int a[][N],int n)
         打印移动的步骤
  *
  */
-void Hanio(int n,char A,char B,char C)
-{
-  if(n==0)
-  {
-    return ;
-  }
-  Hanio(n - 1,A,C,B);
-  printf("%c->%c\n",A,C);
-  Hanio(n - 1,B,A,C);
-}
+// void Hanio(int n,char A,char B,char C)
+// {
+//   if(n==0)
+//   {
+//     return ;
+//   }
+//   Hanio(n - 1,A,C,B);
+//   printf("%c->%c\n",A,C);
+//   Hanio(n - 1,B,A,C);
+// }
+// /*
+//  *
+// *    f：求按照汉诺塔的规则,把n个盘子从A移动到C,中间可以利用B
+//      求移动n个盘子的步骤他需要挪动多少步?(整个有多少步数)
+//      @n:移动多少个盘子
+//      返回值：
+//           移动的步数
+//      思路：
+//           按照Hanio塔规则，移动n个盘子的步数
+//  *
+//  */
+// int f(int n)
+// {
+//   if(n == 0)
+//   {
+//     return 0;
+//   }
+//   return f(n-1) + 1 + f(n-1);
+// }
+// int main()
+// {
+//   int n = 0;
+//   scanf("%d",&n);
+//   Hanio(n,'A','B','C');
+//   printf("移动%d个盘子的步数为%d\n",n,f(n));
+//   return 0;
+// }
+// /*
+//  *2.使用递归的方法,求一个一维数组的元素之和.
+//  *
+//  */
+// /*
+//  * sum_arr:求一维数组的元素之和
+//  * @a:数组名
+//  * @n：数组个数
+//  * 返回值：
+//  *    数组元素的和
+//  */
+// #define N 5
+// int sum_arr(int a[],int n)
+// {
+//     if(n > 0)
+//     {
+//         return a[n-1] + sum_arr(a,n-1);
+//     }
+//     if(n == 0)
+//     {
+//         return 0;
+//
+//     }
+// }
+// int main()
+// {
+//     int a[N];
+//     int i = 0;
+//     for(i = 0 ; i < N ;i++)
+//     {
+//         scanf("%d",&a[i]);
+//     }
+//     int sum = sum_arr(a,N);
+//     printf("sum == %d\n",sum);
+//     return 0;
+// }
 /*
  *
-*    f：求按照汉诺塔的规则,把n个盘子从A移动到C,中间可以利用B
-     求移动n个盘子的步骤他需要挪动多少步?(整个有多少步数)
-     @n:移动多少个盘子
-     返回值：
-          移动的步数
-     思路：
-          按照Hanio塔规则，移动n个盘子的步数
- *
+ * 1.用递归的方法,来判断一个一维数组是否递增!
  */
-int f(int n)
+/*
+ *  Is_rise:判断一个一维数组是否递增
+ *  @a:一维数组名
+ *  @n:数组元素个数
+ *  返回值：
+ *        1 -> 递增
+ *        0 -> 不递增
+ */
+#define N 5
+int Is_rise(int a[],int n )
 {
-  if(n == 0)
-  {
-    return 0;
-  }
-  return f(n-1) + 1 + f(n-1);
+    if(n == 1)
+    {
+        return 1;
+    }
+    if(n > 1)
+    {
+        return Is_rise(a,n-1) && a[n-1] > a[n-2];
+    }
 }
 int main()
 {
-  int n = 0;
-  scanf("%d",&n);
-  Hanio(n,'A','B','C');
-  printf("移动%d个盘子的步数为%d\n",n,f(n));
-  return 0;
+    int a[N];
+    int i = 0;
+    for(i = 0; i < N; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    int res = Is_rise(a,N);
+    if(res == 1)
+    {
+        printf("递增!\n");
+    }
+    else if(res == 0)
+    {
+        printf("不递增!\n");
+    }
+    return 0;
 }
+
+
+// /*
+//  *
+//  * 3.使用递归的方法,求斐波拉契数列的n项和.
+//  */
+// #define N 6
+// int  Init_fib(int n);
+// /*
+//  *  fib :求斐波拉契数列的n项的和
+//  *  @n  :输入的斐波拉契数列的个数
+//  *  返回值:
+//  *         斐波拉契数列的n项的和
+//  */
+// int fib(int n)
+// {
+//    int i = 0;
+//    int sum = 0;
+//    for(i = 1 ; i <= n;i++)
+//    {
+//      sum+=Init_fib(i);
+//    }
+//   return sum;
+// }
+// /*
+//  *  Init_fib :求第n个斐波拉契数列
+//  *  @n  :键盘输入第n个斐波拉契数
+//  *  返回值:
+//  *         第n个斐波拉契数
+//  */
+// int  Init_fib(int n)
+// {
+//       if(n >0 && n <=2)
+//       {
+//        return 1;
+//       }
+//       if(n > 2)
+//       {
+//        return Init_fib(n-1) + Init_fib(n-2);
+//       }
+// }
+// int main()
+// {
+//     int n = 0;
+//     scanf("%d",&n);
+//     int sum = fib(n);
+//     printf("斐波拉契数列的%d项和为%d\n",n,sum);
+//     return 0;
+// }
