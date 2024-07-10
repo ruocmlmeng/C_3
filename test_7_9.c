@@ -442,37 +442,37 @@
  *        1 -> 递增
  *        0 -> 不递增
  */
-#define N 5
-int Is_rise(int a[],int n )
-{
-    if(n == 1)
-    {
-        return 1;
-    }
-    if(n > 1)
-    {
-        return Is_rise(a,n-1) && a[n-1] > a[n-2];
-    }
-}
-int main()
-{
-    int a[N];
-    int i = 0;
-    for(i = 0; i < N; i++)
-    {
-        scanf("%d",&a[i]);
-    }
-    int res = Is_rise(a,N);
-    if(res == 1)
-    {
-        printf("递增!\n");
-    }
-    else if(res == 0)
-    {
-        printf("不递增!\n");
-    }
-    return 0;
-}
+// #define N 5
+// int Is_rise(int a[],int n )
+// {
+//     if(n == 1)
+//     {
+//         return 1;
+//     }
+//     if(n > 1)
+//     {
+//         return Is_rise(a,n-1) && a[n-1] > a[n-2];
+//     }
+// }
+// int main()
+// {
+//     int a[N];
+//     int i = 0;
+//     for(i = 0; i < N; i++)
+//     {
+//         scanf("%d",&a[i]);
+//     }
+//     int res = Is_rise(a,N);
+//     if(res == 1)
+//     {
+//         printf("递增!\n");
+//     }
+//     else if(res == 0)
+//     {
+//         printf("不递增!\n");
+//     }
+//     return 0;
+// }
 
 
 // /*
@@ -522,3 +522,177 @@ int main()
 //     printf("斐波拉契数列的%d项和为%d\n",n,sum);
 //     return 0;
 // }
+/*
+ *
+ *4.求	水洼数
+    小帅家的前面有一个坪,这个坪他不平下雨之后,就会有"水洼,水坑".
+    输入:
+        M * N
+        1 1 0 0 1 0 1 0 1 0
+        0 1 0 0 1 1 1 1 0 1
+        0 1 1 1 1 1 1 0 1 1
+        1 1 0 0 1 0 1 0 1 1
+        1 1 1 1 1 1 0 1 1 0
+        1:表示没有水 0:表示此处有水
+        一个点的水,会和周围其它点的水连成一片大水洼,
+        最后,求水洼的个数!!!
+ *
+ */
+/*
+ *  find_water:找一个二维数组中水洼的个数
+ *  @i,j      :二维数组中值为0的下标
+ *  返回值:
+ *          无返回值
+ *
+ */
+// #define M 5
+// #define N 10
+// int a[M][N];
+// void find_water(int a[][N],int i,int j)
+// {
+//     //判断i,j有没有越界,越界了的话就直接退出
+//     if(i < 0 || i >= M ||j < 0 || j>=N )
+//         return ;
+//     //如果是水洼就标记
+//     a[i][j] = 1;
+//     find_water(a,i-1,j);
+//     find_water(a,i+1,j);
+//     find_water(a,i,j+1);
+//     find_water(a,i,j-1);
+//     find_water(a,i-1,j-1);
+//     find_water(a,i-1,j+1);
+//     find_water(a,i+1,j+1);
+//     find_water(a,i+1,j-1);
+// }
+//
+// int main()
+// {
+//
+//     int i = 0;
+//     int j = 0;
+//     for(i = 0; i < M; i++)
+//     {
+//         for(j = 0; j<N;j++)
+//         {
+//             scanf("%d",a[i][j]);
+//         }
+//     }
+//     int count = 0;//记录水洼的个数
+//     //遍历整个数组
+//     for(i = 0; i < M; i++)
+//     {
+//         for(j = 0; j < N ;j++)
+//         {
+//             if(a[i][j] == 0)
+//             {
+//                 find_water(a,i,j);
+//                 count++;
+//             }
+//         }
+//     }
+//     printf("%d个水洼\n",count);
+//     return 0;
+// }
+// #define M 5
+// #define N 10
+// int a[M][N];
+// void find_water(int i,int j)
+// {
+//     //判断i,j有没有越界,越界了的话就直接退出
+//     if(i < 0 || i >= M ||j < 0 || j>=N )
+//         return ;
+//     //如果是水洼就标记
+//     a[i][j] = 1;
+//     find_water(i-1,j);
+//     find_water(i+1,j);
+//     find_water(i,j+1);
+//     find_water(i,j-1);
+//     find_water(i-1,j-1);
+//     find_water(i-1,j+1);
+//     find_water(i+1,j+1);
+//     find_water(i+1,j-1);
+// }
+//
+// int main()
+// {
+//
+//     int i = 0;
+//     int j = 0;
+//     for(i = 0; i < M; i++)
+//     {
+//         for(j = 0; j<N;j++)
+//         {
+//             scanf("%d",a[i][j]);
+//         }
+//     }
+//     int count = 0;//记录水洼的个数
+//     //遍历整个数组
+//     for(i = 0; i < M; i++)
+//     {
+//         for(j = 0; j < N ;j++)
+//         {
+//             if(a[i][j] == 0)
+//             {
+//                 find_water(i,j);
+//                 count++;
+//             }
+//         }
+//     }
+//     printf("%d个水洼\n",count);
+//     return 0;
+// }
+// #include <stdio.h>
+//
+// #define MAX_M 5
+// #define MAX_N 10
+//
+// int M = 5, N = 10;
+// int grid[MAX_M][MAX_N] = {
+//     {1, 1, 0, 0, 1, 0, 1, 0, 1, 0},
+//     {0, 1, 0, 0, 1, 1, 1, 1, 0, 1},
+//     {0, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+//     {1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
+//     {1, 1, 1, 1, 1, 1, 0, 1, 1, 0}
+// };
+//
+// // 深度优先搜索函数
+// void dfs(int i, int j) {
+//     // 如果越界或者不是水，返回
+//     if (i < 0 || i >= M || j < 0 || j >= N || grid[i][j] != 0) {
+//         return;
+//     }
+//
+//     // 将当前点标记为已访问
+//     grid[i][j] = 1;
+//
+//     // 递归访问相邻的八个方向
+//     dfs(i - 1, j - 1);
+//     dfs(i - 1, j);
+//     dfs(i - 1, j + 1);
+//     dfs(i, j - 1);
+//     dfs(i, j + 1);
+//     dfs(i + 1, j - 1);
+//     dfs(i + 1, j);
+//     dfs(i + 1, j + 1);
+// }
+//
+// int main() {
+//     int puddleCount = 0;
+//
+//     // 遍历整个网格
+//     for (int i = 0; i < M; i++) {
+//         for (int j = 0; j < N; j++) {
+//             // 如果发现一个水点，启动DFS
+//             if (grid[i][j] == 0) {
+//                 dfs(i, j);
+//                 puddleCount++;
+//             }
+//         }
+//     }
+//
+//     // 输出水洼数量
+//     printf("%d\n", puddleCount);
+//
+//     return 0;
+// }
+
