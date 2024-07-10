@@ -695,4 +695,65 @@
 //
 //     return 0;
 // }
+#include <stdio.h>
+
+#define MAX_M 5
+#define MAX_N 10
+
+/*
+ *
+ *  find_water:找一个二维数组中的水洼个数
+ *  @a      :传入的二维数组的函数名
+ *  @N      :传入的二位数组的列
+ *  @i,j    :传入的水洼的下标
+ *
+ */
+void find_water(int a[][MAX_N], int N, int i, int j) {
+
+    if (i < 0 || i >= MAX_M || j < 0 || j >= N || a[i][j] != 0) {
+        return;
+    }
+
+    // 将当前点标记为已访问
+    a[i][j] = 1;
+
+    // 递归访问相邻的八个方向
+    find_water(a, N, i - 1, j - 1);
+    find_water(a, N, i - 1, j);
+    find_water(a, N, i - 1, j + 1);
+    find_water(a, N, i, j - 1);
+    find_water(a, N, i, j + 1);
+    find_water(a, N, i + 1, j - 1);
+    find_water(a, N, i + 1, j);
+    find_water(a, N, i + 1, j + 1);
+}
+
+int main() {
+    int M = 5, N = 10;
+    int a[MAX_M][MAX_N] = {
+        {1, 1, 0, 0, 1, 0, 1, 0, 1, 0},
+        {0, 1, 0, 0, 1, 1, 1, 1, 0, 1},
+        {0, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+        {1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
+        {1, 1, 1, 1, 1, 1, 0, 1, 1, 0}
+    };
+
+    int count = 0;
+
+    // 遍历整个网格
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            // 如果发现一个水点，启动DFS
+            if (a[i][j] == 0) {
+                find_water(a, N, i, j);
+                count++;
+            }
+        }
+    }
+
+    // 输出水洼数量
+    printf("%d\n", count);
+
+    return 0;
+}
 
