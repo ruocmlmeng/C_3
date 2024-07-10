@@ -256,28 +256,141 @@ int Is_symmesry_vertical(int a[][N],int n)
  *  返回值：
  *      整个数组的和
  */
-#define N 5
-int sum_Arr(int a[],int n )
+// #define N 5
+// int sum_Arr(int a[],int n )
+// {
+//   if( n <= 0)
+//   {
+//     return 0;
+//   }
+//   else
+//   {
+//     return a[n-1] + sum_Arr(a,n - 1);
+//   }
+//
+// }
+// int main()
+// {
+//   int a[N];
+//   int i = 0;
+//   for(i = 0; i < N ;i++)
+//   {
+//     scanf("%d",&a[i]);
+//   }
+//   int res = sum_Arr(a,N);
+//   printf("数组的和为%d\n",res);
+//   return 0;
+// }
+#include<stdio.h>
+/*
+  jiecheng:从键盘输入n求n的阶乘
+  @n 		：从键盘输入的值
+  返回值		：
+        n的阶乘
+*/
+// int jiecheng(int n)
+// {
+//   if(n == 1)
+//   {
+//     return 1;
+//   }
+//   if(n > 1)
+//   {
+//     return n * jiecheng(n -1 );
+//   }
+// }
+// int main()
+// {
+//   int n = 0;
+//   scanf("%d",&n);
+//   int res = jiecheng(n);
+//   printf("%d! = %d\n",n,res);
+//   return 0;
+// }
+
+// /*
+//  *Hanio塔问题
+//  *
+//  */
+// /*
+// *  Hanio：按照"汉诺塔"的规则,把n个盘子从A柱,移动到C柱,
+//           中间可以利用B柱,把移动的步骤打印出来!
+//    @n:要移动的盘子的数量
+//    @A,B,C:移动盘子需要借助的柱子
+//    返回值：
+//         无返回值
+//         打印移动的步骤
+//  *
+//  */
+// void Hanio(int n,char A,char B,char C)
+// {
+//   if(n==0)
+//   {
+//     return ;
+//   }
+//   Hanio(n - 1,A,C,B);
+//   printf("%c->%c\n",A,C);
+//   Hanio(n - 1,B,A,C);
+//   if(A == 'A' && B =='C' && C=='B')
+//   {
+//
+//   }
+// }
+// int main()
+// {
+//   int n = 0;
+//   scanf("%d",&n);
+//   Hanio(n,'A','B','C');
+//   return 0;
+// }
+/*
+ *Hanio塔问题
+ *
+ */
+/*
+*  Hanio：按照"汉诺塔"的规则,把n个盘子从A柱,移动到C柱,
+          中间可以利用B柱,把移动的步骤打印出来!
+   @n:要移动的盘子的数量
+   @A,B,C:移动盘子需要借助的柱子
+   返回值：
+        无返回值
+        打印移动的步骤
+ *
+ */
+void Hanio(int n,char A,char B,char C)
 {
-  if( n <= 0)
+  if(n==0)
+  {
+    return ;
+  }
+  Hanio(n - 1,A,C,B);
+  printf("%c->%c\n",A,C);
+  Hanio(n - 1,B,A,C);
+}
+/*
+ *
+*    f：求按照汉诺塔的规则,把n个盘子从A移动到C,中间可以利用B
+     求移动n个盘子的步骤他需要挪动多少步?(整个有多少步数)
+     @n:移动多少个盘子
+     返回值：
+          移动的步数
+     思路：
+          按照Hanio塔规则，移动n个盘子的步数
+ *
+ */
+int f(int n)
+{
+  if(n == 0)
   {
     return 0;
   }
-  else
-  {
-    return a[n-1] + sum_Arr(a,n - 1);
-  }
-
+  return f(n-1) + 1 + f(n-1);
 }
 int main()
 {
-  int a[N];
-  int i = 0;
-  for(i = 0; i < N ;i++)
-  {
-    scanf("%d",&a[i]);
-  }
-  int res = sum_Arr(a,N);
-  printf("数组的和为%d\n",res);
+  int n = 0;
+  scanf("%d",&n);
+  Hanio(n,'A','B','C');
+  printf("移动%d个盘子的步数为%d\n",n,f(n));
   return 0;
 }
