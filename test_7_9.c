@@ -708,52 +708,108 @@
  *  @i,j    :传入的水洼的下标
  *
  */
-void find_water(int a[][MAX_N], int N, int i, int j) {
-
-    if (i < 0 || i >= MAX_M || j < 0 || j >= N || a[i][j] != 0) {
-        return;
-    }
-
-    // 将当前点标记为已访问
-    a[i][j] = 1;
-
-    // 递归访问相邻的八个方向
-    find_water(a, N, i - 1, j - 1);
-    find_water(a, N, i - 1, j);
-    find_water(a, N, i - 1, j + 1);
-    find_water(a, N, i, j - 1);
-    find_water(a, N, i, j + 1);
-    find_water(a, N, i + 1, j - 1);
-    find_water(a, N, i + 1, j);
-    find_water(a, N, i + 1, j + 1);
-}
-
-int main() {
-    int M = 5, N = 10;
-    int a[MAX_M][MAX_N] = {
-        {1, 1, 0, 0, 1, 0, 1, 0, 1, 0},
-        {0, 1, 0, 0, 1, 1, 1, 1, 0, 1},
-        {0, 1, 1, 1, 1, 1, 1, 0, 1, 1},
-        {1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
-        {1, 1, 1, 1, 1, 1, 0, 1, 1, 0}
-    };
-
-    int count = 0;
-
-    // 遍历整个网格
-    for (int i = 0; i < M; i++) {
-        for (int j = 0; j < N; j++) {
-            // 如果发现一个水点，启动DFS
-            if (a[i][j] == 0) {
-                find_water(a, N, i, j);
-                count++;
-            }
-        }
-    }
-
-    // 输出水洼数量
-    printf("%d\n", count);
-
-    return 0;
-}
-
+// void find_water(int a[][MAX_N], int N, int i, int j) {
+//
+//     if (i < 0 || i >= MAX_M || j < 0 || j >= N || a[i][j] != 0) {
+//         return;
+//     }
+//
+//     // 将当前点标记为已访问
+//     a[i][j] = 1;
+//
+//     // 递归访问相邻的八个方向
+//     find_water(a, N, i - 1, j - 1);
+//     find_water(a, N, i - 1, j);
+//     find_water(a, N, i - 1, j + 1);
+//     find_water(a, N, i, j - 1);
+//     find_water(a, N, i, j + 1);
+//     find_water(a, N, i + 1, j - 1);
+//     find_water(a, N, i + 1, j);
+//     find_water(a, N, i + 1, j + 1);
+// }
+//
+// int main() {
+//     int M = 5, N = 10;
+//     int a[MAX_M][MAX_N] = {
+//         {1, 1, 0, 0, 1, 0, 1, 0, 1, 0},
+//         {0, 1, 0, 0, 1, 1, 1, 1, 0, 1},
+//         {0, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+//         {1, 1, 0, 0, 1, 0, 1, 0, 1, 1},
+//         {1, 1, 1, 1, 1, 1, 0, 1, 1, 0}
+//     };
+//
+//     int count = 0;
+//
+//     // 遍历整个网格
+//     for (int i = 0; i < M; i++) {
+//         for (int j = 0; j < N; j++) {
+//             // 如果发现一个水点，启动DFS
+//             if (a[i][j] == 0) {
+//                 find_water(a, N, i, j);
+//                 count++;
+//             }
+//         }
+//     }
+//
+//     // 输出水洼数量
+//     printf("%d\n", count);
+//
+//     return 0;
+// }
+// void f(int a,int b)
+// {
+//  int t;
+//  t = a;
+//  a = b;
+//  b = t;
+// }
+// int main()
+// {
+//     int x = 1,y =3,z=2;
+//     if(x>y)
+//     {
+//      f(x,y);
+//     }
+//     else if(y>z)
+//     {
+//      f(x,z);
+//     }
+//     else
+//     {
+//      f(x,z);
+//     }
+//     printf("%d,%d,%d\n",x,y,z);
+//     return 0;
+// }
+// #define N 80
+// int fun(int a[],int n)
+// {
+//     int i,j=1;
+//     for(i = 1; i < n; i++)
+//     {
+//       if(a[j - 1] != a[i])
+//       {
+//           a[j++] = a[i];
+//       }
+//
+//     }
+//     return j;
+// }
+// int main()
+// {
+//     int a[N] ={2,2,2,3,4,4,5,6,6,6,6,7,7,8,9,9,10,10,10,10};
+//     int i = 0;
+//     int n = 19;
+//     printf("The original data:\n");
+//     for(i = 0; i < n;i++)
+//     {
+//         printf("%d ",a[i]);
+//     }
+//     n = fun(a,n);
+//     printf("\nThe data after deleted:\n");
+//     for(i = 0; i < n; i++)
+//     {
+//         printf("%d ",a[i]);
+//     }
+//     return 0;
+// }
