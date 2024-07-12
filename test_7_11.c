@@ -262,33 +262,54 @@
  *       0  s1 == s2 则继续比较下一对,如果全部相等,则返回0
  *
  */
-int my_strncmp(const char* s1,const char * s2 ,size_t n)
-{
-   while (n)
-   {
-    if(*s1 == *s2)
-    {
-     n--;
-     continue;
-    }
-    else if( *s1 < *s2)
-    {
-     return -1;
-    }
-    else
-    {
-     return 1;
-    }
-   }
- return 0;
-}
+// int my_strncmp(const char* s1,const char * s2 ,size_t n)
+// {
+//    while (n)
+//    {
+//     if(*s1 == *s2)
+//     {
+//      n--;
+//      continue;
+//     }
+//     else if( *s1 < *s2)
+//     {
+//      return -1;
+//     }
+//     else
+//     {
+//      return 1;
+//     }
+//    }
+//  return 0;
+// }
+// int main()
+// {
+//   char s1[10] ="23456";
+//   char s2[10] ="12345";
+//   int n = 0;
+//   printf("请输入比较前n个字符:");
+//   scanf("%d",&n);
+//   printf("%d\n",my_strncmp(s1,s2,n));
+//   return 0;
+// }
 int main()
 {
-  char s1[10] ="23456";
-  char s2[10] ="12345";
-  int n = 0;
-  printf("请输入比较前n个字符:");
-  scanf("%d",&n);
-  printf("%d\n",my_strncmp(s1,s2,n));
+  int a[10] = {20,2,3,4,5,6,7,8,9,10};
+  int * p[10];
+  int i = 0;
+  int sum = 0;
+  for (i = 0; i < 10 ;i++)
+  {
+    p[i] = &a[i];
+  }
+  int ** pp ;
+  pp = p;
+  for(i = 0; i < 10; i++)
+  {
+    // sum += **(pp+i);
+    // sum += *(*pp + i);
+    sum += *pp[i];
+  }
+  printf("%d\n",sum);
   return 0;
 }
