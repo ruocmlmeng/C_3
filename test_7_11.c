@@ -226,12 +226,29 @@
  * 返回值:
  *     完成拷贝后,返回目的地字符串的首地址
  */
+#include <string.h>
 char * my_strncpy(char* dest,char* src,size_t n)
 {
-
+     int count = 0;//记录是否复制到了第n个字符
+     while (count <= n)
+     {
+           if(*src == '\0')
+           {
+            return dest;
+           }
+          *dest = *src;
+           dest++;
+           src++;
+           count++;
+     }
+     return dest;
 }
 int main()
 {
-
+  char dest[10] ="";
+  char src[10] = "abcdefg";
+  int len = strlen(src);
+  my_strncpy(dest,src,len);
+  printf("dest == %s\n",dest);
   return 0;
 }
