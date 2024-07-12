@@ -135,17 +135,103 @@
 //  printf("a == %d \n",a);//a == 6
 //  printf("b == %d\n",b);//b ==5
 // }
+// int main()
+// {
+//   int a[10] = {1,2,3,4,5,6,7,8,9,10};
+//   int *p = &a[3];
+//   p = p -3;
+//   int i = 0;
+//   int sum = 0;
+//   for(i = 0; i < 10; i++)
+//   {
+//     sum = sum + *(p + i);
+//   }
+//  printf("%d\n",sum);
+//   return 0;
+// }
+
+
+/*
+ *  my_strlen:求字符串的有效长度
+ *  @a：字符数组名
+ *  返回值：
+ *     字符串的长度
+ */
+// int my_strlen(const char a[])
+// {
+//   int count = 0;
+//   while(*a!='\0')
+//   {
+//    count++;
+//    a++;
+//   }
+//  return count;
+// }
+// int my_strlen(const char a[])
+// {
+//    const char * s = a;
+//    while (*s)
+//    {
+//        s++;
+//    }
+//    return  s - a;//地址相减
+// }
+// int main()
+// {
+//   // char a[] = "abcdef";
+//   char a[256] = {0};
+//   scanf("%s",a);
+//   int len = my_strlen(a);
+//   printf("%d\n",len);
+//   return 0;
+// }
+/*
+ *  my_atoi:把一个十进制的数组字符串，转换成一个整数
+ *  @nptr : 传入的字符串
+ *  返回值:
+ *       字符串所对应相应的整数
+ */
+// int my_atoi(const char * nptr)
+// {
+//     int sum = 0;
+//     if(*nptr == '-')
+//     {
+//       nptr++;
+//      while (*nptr != '\0')
+//      {
+//       sum = sum * 10 + *nptr -48;
+//       nptr++;
+//      }
+//      return -sum;
+//     }
+//     while (*nptr != '\0')
+//     {
+//       sum = sum * 10 + *nptr -48;
+//       nptr++;
+//     }
+//     return sum;
+// }
+// int main()
+// {
+//   char a[256] = {0};
+//   scanf("%s",a);
+//   printf("%d\n",my_atoi(a));
+//   return 0;
+// }
+/*
+ * strncpy: 实现字符串的拷贝
+ * @dest: 目标字符串
+ * @src: 源头字符串
+ * @n  : 拷贝前n个字符
+ * 返回值:
+ *     完成拷贝后,返回目的地字符串的首地址
+ */
+char * my_strncpy(char* dest,char* src,size_t n)
+{
+
+}
 int main()
 {
-  int a[10] = {1,2,3,4,5,6,7,8,9,10};
-  int *p = &a[3];
-  p = p -3;
-  int i = 0;
-  int sum = 0;
-  for(i = 0; i < 10; i++)
-  {
-    sum = sum + *(p + i);
-  }
- printf("%d\n",sum);
+
   return 0;
 }
