@@ -226,29 +226,69 @@
  * 返回值:
  *     完成拷贝后,返回目的地字符串的首地址
  */
-#include <string.h>
-char * my_strncpy(char* dest,char* src,size_t n)
+// #include <string.h>
+// char * my_strncpy(char* dest,char* src,size_t n)
+// {
+//      int count = 0;//记录是否复制到了第n个字符
+//      while (count <= n)
+//      {
+//            if(*src == '\0')
+//            {
+//             return dest;
+//            }
+//           *dest = *src;
+//            dest++;
+//            src++;
+//            count++;
+//      }
+//      return dest;
+// }
+// int main()
+// {
+//   char dest[10] ="";
+//   char src[10] = "abcdefg";
+//   int len = strlen(src);
+//   my_strncpy(dest,src,len);
+//   printf("dest == %s\n",dest);
+//   return 0;
+// }
+/*
+ *  my_strncmp:对两个字符串前n个字符进行大小比较
+ *  @s1,s2    :两个待比较的字符串
+ *  @n        :比较多少对字符
+ *  返回值:
+ *       1  s1 > s2
+ *       -1 s1 < s2
+ *       0  s1 == s2 则继续比较下一对,如果全部相等,则返回0
+ *
+ */
+int my_strncmp(const char* s1,const char * s2 ,size_t n)
 {
-     int count = 0;//记录是否复制到了第n个字符
-     while (count <= n)
-     {
-           if(*src == '\0')
-           {
-            return dest;
-           }
-          *dest = *src;
-           dest++;
-           src++;
-           count++;
-     }
-     return dest;
+   while (n)
+   {
+    if(*s1 == *s2)
+    {
+     n--;
+     continue;
+    }
+    else if( *s1 < *s2)
+    {
+     return -1;
+    }
+    else
+    {
+     return 1;
+    }
+   }
+ return 0;
 }
 int main()
 {
-  char dest[10] ="";
-  char src[10] = "abcdefg";
-  int len = strlen(src);
-  my_strncpy(dest,src,len);
-  printf("dest == %s\n",dest);
+  char s1[10] ="23456";
+  char s2[10] ="12345";
+  int n = 0;
+  printf("请输入比较前n个字符:");
+  scanf("%d",&n);
+  printf("%d\n",my_strncmp(s1,s2,n));
   return 0;
 }
