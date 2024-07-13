@@ -103,6 +103,7 @@
 //  return 0;
 // }
 #include<stdio.h>
+#include <string.h>
 // #include <stdlib.h>
 // int main()
 // {
@@ -344,6 +345,73 @@
 //   free(a);
 //   return 0;
 // }
-#include<string.h>
-#include<stdlib.h>
+// int main()
+// {
+//   int a[4] ={0,2,3,4};
+//   int *p[4];
+//   int i = 0;
+//   for(i = 0; i < 4 ;i++)
+//   {
+//     // p[i] = a + i;
+//     p[i] = &a[i];
+//   }
+//  for(i = 0; i < 4 ;i++)
+//  {
+//   printf("%d ",*p[i]);
+//  }
+//   return 0;
+// }
+// int main()
+// {
+//   char s[] = {'a','b','c','c'};
+//   printf("%d\n",strlen(s));
+//   return 0;
+// }
+/*
+ * atoi: 将一个数字字符转化为这个数字本身
+ * @s:字符串的首地址
+ * 返回值:
+ *      数字本身 int
+ * 思路:
+ *    如果输入的是正常的字符"1231412"
+ *    那么还有常规的字符:
+ *                    "-12345"
+ *                    "+12345"
+ */
+int atoi(char * s)
+{
+    int flag = 0; //标记 判断字符串首元素是不是符号(+/-)
+    if(*s == '-')
+    {
+      flag = 0;
+      s++;
+    }
+    else
+    {
+     flag = 1;
+     if(*s == '+')
+     {
+      s++;
+     }
+    }
+     int sum = 0;
+    while (*s)
+    {
+      sum = sum*10 + (*s - 48);
+      s++;
+    }
+    if(flag == 0)
+    {
+      return -1 * sum;
+    }
+    return sum ;
 
+}
+int main()
+{
+  char  a[10];
+  scanf("%s",a);
+  int res = atoi(a);
+  printf("%d\n",res);
+  return 0;
+}
