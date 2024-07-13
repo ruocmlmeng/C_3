@@ -103,6 +103,7 @@
 //  return 0;
 // }
 #include<stdio.h>
+// #include <stdlib.h>
 // int main()
 // {
 //  int a = 1024;
@@ -234,6 +235,7 @@
 //      {
 //            if(*src == '\0')
 //            {
+//             *dest = *src;
 //             return dest;
 //            }
 //           *dest = *src;
@@ -246,7 +248,7 @@
 // int main()
 // {
 //   char dest[10] ="";
-//   char src[10] = "abcdefg";
+//   char src[10] = "abcd\0efg";
 //   int len = strlen(src);
 //   my_strncpy(dest,src,len);
 //   printf("dest == %s\n",dest);
@@ -292,24 +294,56 @@
 //   printf("%d\n",my_strncmp(s1,s2,n));
 //   return 0;
 // }
-int main()
-{
-  int a[10] = {20,2,3,4,5,6,7,8,9,10};
-  int * p[10];
-  int i = 0;
-  int sum = 0;
-  for (i = 0; i < 10 ;i++)
-  {
-    p[i] = &a[i];
-  }
-  int ** pp ;
-  pp = p;
-  for(i = 0; i < 10; i++)
-  {
-    // sum += **(pp+i);
-    // sum += *(*pp + i);
-    sum += *pp[i];
-  }
-  printf("%d\n",sum);
-  return 0;
-}
+// int main()
+// {
+//   int a[10] = {20,2,3,4,5,6,7,8,9,10};
+//   int * p[10];
+//   int i = 0;
+//   int sum = 0;
+//   for (i = 0; i < 10 ;i++)
+//   {
+//     p[i] = &a[i];
+//   }
+//   int ** pp ;
+//   pp = p;
+//   for(i = 0; i < 10; i++)
+//   {
+//     // sum += **(pp+i);
+//     // sum += *(*pp + i);
+//     sum += *pp[i];
+//   }
+//   printf("%d\n",sum);
+//   return 0;
+// }
+
+/*
+ *
+ * 定义一个动态的整型数组,其元素个数,由用户输入来决定,
+	* 然后再输入每个元素的值,最后求这个数组的最大值.
+ */
+// int main()
+// {
+//   int n = 0;
+//   printf("请输入想开辟元素的个数:");
+//   scanf("%d",&n);
+//   int *a = (int *)malloc(sizeof(int)*n);
+//   int i= 0 ;
+//   for(i = 0; i< n;i++)
+//   {
+//     scanf("%d",&a[i]);
+//   }
+//   int max = 0;
+//   for(i = 0; i < n;i++)
+//   {
+//     if(*(a+i) > max)
+//     {
+//      max = *(a+i);
+//     }
+//   }
+//   printf("%d\n",max);
+//   free(a);
+//   return 0;
+// }
+#include<string.h>
+#include<stdlib.h>
+
