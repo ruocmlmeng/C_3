@@ -103,6 +103,7 @@
 //  return 0;
 // }
 #include<stdio.h>
+#include <stdlib.h>
 #include <string.h>
 // #include <stdlib.h>
 // int main()
@@ -378,40 +379,67 @@
  *                    "-12345"
  *                    "+12345"
  */
-int atoi(char * s)
+// int atoi(char * s)
+// {
+//     int flag = 0; //标记 判断字符串首元素是不是符号(+/-)
+//     if(*s == '-')
+//     {
+//       flag = 0;
+//       s++;
+//     }
+//     else
+//     {
+//      flag = 1;
+//      if(*s == '+')
+//      {
+//       s++;
+//      }
+//     }
+//      int sum = 0;
+//     while (*s)
+//     {
+//       sum = sum*10 + (*s - 48);
+//       s++;
+//     }
+//     if(flag == 0)
+//     {
+//       return -1 * sum;
+//     }
+//     return sum ;
+//
+// }
+// int main()
+// {
+//   char  a[10];
+//   scanf("%s",a);
+//   int res = atoi(a);
+//   printf("%d\n",res);
+//   return 0;
+// }
+/*
+ *
+ * 练习: 定义一个学生信息结构体数组(数组元素的个数由用户输入来决定),然后
+ *      依次从键盘输入每个学生信息,按成绩的降序输入每个学术性的信息.
+ */
+struct student
 {
-    int flag = 0; //标记 判断字符串首元素是不是符号(+/-)
-    if(*s == '-')
-    {
-      flag = 0;
-      s++;
-    }
-    else
-    {
-     flag = 1;
-     if(*s == '+')
-     {
-      s++;
-     }
-    }
-     int sum = 0;
-    while (*s)
-    {
-      sum = sum*10 + (*s - 48);
-      s++;
-    }
-    if(flag == 0)
-    {
-      return -1 * sum;
-    }
-    return sum ;
-
-}
+    char name[10];
+    int age;
+    int score;
+};
 int main()
 {
-  char  a[10];
-  scanf("%s",a);
-  int res = atoi(a);
-  printf("%d\n",res);
+  int n ;
+  scanf("%d",&n);
+  struct student *s = malloc(sizeof(struct student)*n);
+  int i = 0;
+  for (i = 0; i < n ;i++)
+  {
+    scanf("%s%d%d",*(s+i)->name,(s+i)->age,(s+i)->score);
+  }
+ for (i = 0; i < n ;i++)
+ {
+  printf("%s%d%d",(s+i)->name,(s+i)->age,(s+i)->score);
+ }
   return 0;
 }

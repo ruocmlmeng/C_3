@@ -813,3 +813,35 @@
 //     }
 //     return 0;
 // }
+// #define N 80
+// int fun(int a[],int n)
+// {
+//     int i,j=1;
+//     for(i = 1; i < n; i++)
+//     {
+//       if(a[j - 1] != a[i])
+//       {
+//           a[j++] = a[i];
+//       }
+//
+//     }
+//     return j;
+// }
+// int main()
+// {
+//     int a[N] ={2,2,2,3,4,4,5,6,6,6,6,7,7,8,9,9,10,10,10,10};
+//     int i = 0;
+//     int n = 19;
+//     printf("The original data:\n");
+//     for(i = 0; i < n;i++)
+//     {
+//         printf("%d ",a[i]);
+//     }
+//     n = fun(a,n);
+//     printf("\nThe data after deleted:\n");
+//     for(i = 0; i < n; i++)
+//     {
+//         printf("%d ",a[i]);
+//     }
+//     return 0;
+// }
