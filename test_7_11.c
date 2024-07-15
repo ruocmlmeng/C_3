@@ -474,9 +474,158 @@
 写一个参数,通过main的参数传入数组,求两数之和.
 
 */
+// #include<stdlib.h>
+// int main(int argc,char * argv[])
+// {
+//  printf("%d\n",atoi(argv[1]) + atoi(argv[2]));
+//  return 0;
+// }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    if (argc < 3) {
+        printf("请提供两个整数作为参数。\n");
+        return 1;
+    }
+
+    int num1 = atoi(argv[1]);
+    int num2 = atoi(argv[2]);
+    printf("%d\n", num1 + num2);
+
+    return 0;
+}
+*/
+/*
+#include<stdio.h>
 #include<stdlib.h>
 int main(int argc,char * argv[])
 {
- printf("%d\n",atoi(argv[1]) + atoi(argv[2]));
+ int num1 = atoi(argv[1]);
+ int num2 = atoi(argv[2]);
+ printf("%d\n",num1 + num2);
+ return 0;
+}
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+// int main(int argc, char *argv[]) {
+//  if (argc < 2) {
+//   printf("请提供至少一个数字参数。\n");
+//   return 1;
+//  }
+//
+//  int sum = 0;
+//
+//  // 遍历每个参数
+//  for (int i = 1; i < argc; i++) {
+//   int num = 0;
+//   // 遍历参数中的每个字符
+//   for (int j = 0; argv[i][j] != '\0'; j++) {
+//    if (argv[i][j] < '0' || argv[i][j] > '9') {
+//     printf("参数包含非数字字符：%s\n", argv[i]);
+//     return 1;
+//    }
+//    num = num * 10 + (argv[i][j] - '0');
+//   }
+//   sum += num;
+//  }
+//
+//  printf("总和: %d\n", sum);
+//  return 0;
+// }
+
+#include<stdio.h>
+#include<stdlib.h>
+// int main(int argc,char ** argv)
+// {
+//  char * p = (char *)malloc(50);
+//  int i = 0;
+//  for (i = 0; i < 10; i++)
+//  {
+//   *(p + i) = '1' + i;
+//  }
+//  // p = NULL;
+//  char * q = realloc(p,100);
+//
+//  for (i = 0; i < 100; i++)
+//  {
+//   printf("%c ",*(q + i));
+//  }
+//  free(p);
+//  free(q);
+//  return 0;
+// }
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+// int main(int argc,char ** argv)
+// {
+//  char * p = (char *)malloc(50);
+//  strcpy(p,"1234456abcfdef");
+//  p = realloc(p,100);
+//  printf("p:%s\n",p);
+//  printf("p:%s\n",p+50);
+//  return 0;
+// }
+
+// int main()
+// {
+//  char *s = "AAA";
+//  printf("%s",s);
+//  s[0] = 'B';
+//  printf("%s",s);
+//  return 0;
+// }
+/*
+ *
+* 5.(选做题)
+    在现实生活中,或者科研领域有可能会遇到一些超级大的数据需要处理
+    希望大家能够设计几个函数,去实现对于超级大的数据进行+ - * /的处理.
+    long long 都保存不下的数据.
+    涉及两个问题:
+    (1) 超级大的数据该如何存储?
+     char * 类型保存
+        字符数组的形式体现出来
+    (2) 超级大的数据他们之间的+-* /该如何实现?
+    (3) 可能数据全是整数或者全是小数,先实现全是整数
+ */
+// int main()
+// {
+//   char *p = "abcdefgh";
+//   char * r;
+//   long *q;
+//   q = (long*) p;
+//   q++;
+//   r = (char*) q;
+//   printf("%s\n",r);
+//   return 0;
+// }
+#include<stdio.h>
+// int main()
+// {
+//  char *s = "abcde";
+//  s=s+2;
+//  printf("%ld\n",s);
+//  return 0;
+// }
+#include<stdio.h>
+void fun(int *a,int *b)
+{
+ int *k;
+ k = a;
+ a = b;
+ b = k;
+}
+int main()
+{
+ int a = 3;
+ int b = 6;
+ int *x = &a;
+ int *y = &b;
+ fun(x,y);
+ printf("%d %d",a,b);
  return 0;
 }
