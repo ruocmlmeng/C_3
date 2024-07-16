@@ -747,3 +747,40 @@ int main(int argc,char * argv[])
 //   printf("%llu\n",sizeof(long));
 //   return 0;
 // }
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Data {
+ int year;
+ int month;
+ int day;
+};
+
+struct student {
+ int num;
+ char name[32];
+ struct Data birthday;
+ int score;
+};
+
+int main() {
+ struct student *class = malloc(sizeof(*class) * 5);
+ if (class == NULL) {
+  printf("Memory allocation failed\n");
+  return 1;
+ }
+
+ int i;
+ for (i = 0; i < 5; i++) {
+  scanf("%d %s %d-%d-%d %d", &((class + i)->num), (class + i)->name, &((class + i)->birthday.year),
+        &((class + i)->birthday.month), &((class + i)->birthday.day), &((class + i)->score));
+ }
+
+ for (i = 0; i < 5; i++) {
+  printf("%d %s %d-%d-%d %d\n", (class + i)->num, (class + i)->name, (class + i)->birthday.year,
+         (class + i)->birthday.month, (class + i)->birthday.day, (class + i)->score);
+ }
+
+ free(class); // Don't forget to free the allocated memory
+ return 0;
+}
