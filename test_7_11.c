@@ -611,21 +611,139 @@ int main(int argc,char * argv[])
 //  printf("%ld\n",s);
 //  return 0;
 // }
+// #include<stdio.h>
+// void fun(int *a,int *b)
+// {
+//  int *k;
+//  k = a;
+//  a = b;
+//  b = k;
+// }
+// int main()
+// {
+//  int a = 3;
+//  int b = 6;
+//  int *x = &a;
+//  int *y = &b;
+//  fun(x,y);
+//  printf("%d %d",a,b);
+//  return 0;
+// }
+// #include<stdio.h>
+// struct Data
+// {
+//  int year;
+//  int month;
+//  int day;
+// };
+// struct student
+// {
+//  int num;
+//  char name[32];
+//  struct Data birthday;
+//  int score;
+// };
+// int main()
+// {
+//  struct student class[5];
+//  int i = 0;
+//  for(i = 0; i < 5; i++)
+//  {
+//   scanf("%d %s %d-%d-%d %d",&class[i].num,class[i].name,&class[i].birthday.year,
+//          &class[i].birthday.month,&class[i].birthday.day,
+//          &class[i].score);
+//  }
+//  for(i = 0; i < 5; i++)
+//  {
+//   printf("%d %s %d-%d-%d %d\n",class[i].num,class[i].name,class[i].birthday.year,
+//          class[i].birthday.month,class[i].birthday.day,
+//          class[i].score);
+//  }
+//  return 0;
+// }
+
+// #include<stdio.h>
+// struct Data
+// {
+//  int year;
+//  int month;
+//  int day;
+// };
+// struct student
+// {
+//  int num;
+//  char name[32];
+//  struct Data birthday;
+//  int score;
+// };
+// int main()
+// {
+//  //struct student class[5];
+//  struct student  * class = (struct student *)malloc(sizeof(*class)*5);
+//  int i = 0;
+//  for(i = 0; i < 5; i++)
+//  {
+//   scanf("%d %s %d-%d-%d %d",&class[i].num,class[i].name,&class[i].birthday.year,
+//          &class[i].birthday.month,&class[i].birthday.day,
+//          &class[i].score);
+//  }
+//  int j = 0;
+//
+// //排序
+//  // for(i = 0; i < 4; i++)
+//  // {
+//  //   flag = 0;
+//  //   for(j = 0;j<4 -  i; j++)
+//  //   {
+//  //    if(class[j].score < class[j+1].score)
+//  //    {
+//  //          struct student t ;
+//  //          t = class[j];
+//  //          class[j] = class[j+1];
+//  //          class[j+1] = t;
+//  //    }
+//  //   }
+//  // }
+//
+//  //换的是对应的索引值，没有交换结构体中的内容
+//  int a[5] ={0,1,2,3,4};
+//  for(i = 0; i < 4;i++)
+//  {
+//   for(j = 0; j < 4 -i;j++)
+//   {
+//     if(class[a[j]].score < class[a[j+1]].score)
+//     {
+//       int temp = a[j];
+//       a[j] = a[j+1];
+//       a[j+1] = temp;
+//     }
+//   }
+//  }
+//  for(i = 0; i < 5; i++)
+//  {
+//   printf("%d %s %d-%d-%d %d\n",class[a[i]].num,class[a[i]].name,class[a[i]].birthday.year,
+//          class[a[i]].birthday.month,class[a[i]].birthday.day,
+//          class[a[i]].score);
+//  }
+//  free(class);
+//  return 0;
+// }
+
 #include<stdio.h>
-void fun(int *a,int *b)
-{
- int *k;
- k = a;
- a = b;
- b = k;
-}
-int main()
-{
- int a = 3;
- int b = 6;
- int *x = &a;
- int *y = &b;
- fun(x,y);
- printf("%d %d",a,b);
- return 0;
-}
+// union test
+// {
+//  char a;
+//  int b;
+// };
+// int main()
+// {
+//  union test t;
+//  t.b = 65;
+//  printf("%d\n",t.a);
+//  return 0;
+// }
+// int main()
+// {
+//   printf("%llu\n",sizeof(long));
+//   return 0;
+// }
