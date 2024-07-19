@@ -370,6 +370,39 @@ build test10.exe: C_EXECUTABLE_LINKER__test10_Debug CMakeFiles/test10.dir/test_7
   TARGET_IMPLIB = libtest10.dll.a
   TARGET_PDB = test10.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test11
+
+
+#############################################
+# Order-only phony target for test11
+
+build cmake_object_order_depends_target_test11: phony || CMakeFiles/test11.dir
+
+build CMakeFiles/test11.dir/test_7_19.c.obj: C_COMPILER__test11_unscanned_Debug E$:/Programs/CLion/Test5/test_7_19.c || cmake_object_order_depends_target_test11
+  DEP_FILE = CMakeFiles\test11.dir\test_7_19.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test11.dir
+  OBJECT_FILE_DIR = CMakeFiles\test11.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test11
+
+
+#############################################
+# Link the executable test11.exe
+
+build test11.exe: C_EXECUTABLE_LINKER__test11_Debug CMakeFiles/test11.dir/test_7_19.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\test11.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = test11.exe
+  TARGET_IMPLIB = libtest11.dll.a
+  TARGET_PDB = test11.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -402,6 +435,8 @@ build test1: phony test1.exe
 
 build test10: phony test10.exe
 
+build test11: phony test11.exe
+
 build test2: phony test2.exe
 
 build test3: phony test3.exe
@@ -424,7 +459,7 @@ build test9: phony test9.exe
 #############################################
 # Folder: E:/Programs/CLion/Test5/cmake-build-debug
 
-build all: phony Test5.exe test1.exe test2.exe test3.exe test4.exe test6.exe test7.exe test8.exe test9.exe test10.exe
+build all: phony Test5.exe test1.exe test2.exe test3.exe test4.exe test6.exe test7.exe test8.exe test9.exe test10.exe test11.exe
 
 # =============================================================================
 # Built-in targets
