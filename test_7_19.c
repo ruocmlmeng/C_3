@@ -135,19 +135,35 @@
  *   那么就求5的个数,求一个5的个数就要干掉一个5
  *
  */
+// int main()
+// {
+//     int i = 0;
+//     int count = 0;//计算5的个数
+//     for(i = 5 ; i<= 100000000;i+=5)
+//     {
+//         int m = i;
+//          while(m % 5 == 0)
+//          {
+//            count++;
+//            m = m / 5;
+//          }
+//     }
+//     printf("一亿后面有%d个0\n",count);
+//     return 0;
+// }
+
+/*
+ *
+ *    1024的655次方的最后三位数是多少?
+ */
 int main()
 {
-    int i = 0;
-    int count = 0;//计算5的个数
-    for(i = 5 ; i<= 100000000;i+=5)
-    {
-        int m = i;
-         while(m % 5 == 0)
-         {
-           count++;
-           m = m / 5;
-         }
-    }
-    printf("一亿后面有%d个0\n",count);
-    return 0;
+ int i = 0;
+ int p = 1;
+ for(i = 1; i <= 655 ;i++)
+ {
+  p = p * 1024 %1000;
+ }
+ printf("%d\n",p);
+ return 0;
 }
