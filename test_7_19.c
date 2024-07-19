@@ -60,26 +60,26 @@
 //     printf("最大公因数%d\n",gcd);
 //     return 0;
 // }
-#define min(a,b) ( (a) < (b) ? (a) : (b))
-int main()
-{
-    int a = 0;
-    int b = 0;
-    scanf("%d %d",&a,&b);
-    int x = min(a,b);
-    int i = 0;
-
-    for(i = min(a,b); i>=1 ;i--)
-    {
-        if(a % i == 0 && b % i == 0)
-        {
-            printf("最大公因数%d\n",i);
-            break;
-        }
-    }
-
-    return 0;
-}
+// #define min(a,b) ( (a) < (b) ? (a) : (b))
+// int main()
+// {
+//     int a = 0;
+//     int b = 0;
+//     scanf("%d %d",&a,&b);
+//     int x = min(a,b);
+//     int i = 0;
+//
+//     for(i = min(a,b); i>=1 ;i--)
+//     {
+//         if(a % i == 0 && b % i == 0)
+//         {
+//             printf("最大公因数%d\n",i);
+//             break;
+//         }
+//     }
+//
+//     return 0;
+// }
 // int main()
 // {
 //     int a = 0;
@@ -128,3 +128,26 @@ int main()
 //
 //     return 0;
 // }
+/*
+ *   求100000000!(一亿)末尾有多少个0?
+ *   0的话就是2*5 = 10 末尾就有一个0嘛
+ *   然后分解质因数之后的2的个数绝对比5多
+ *   那么就求5的个数,求一个5的个数就要干掉一个5
+ *
+ */
+int main()
+{
+    int i = 0;
+    int count = 0;//计算5的个数
+    for(i = 5 ; i<= 100000000;i+=5)
+    {
+        int m = i;
+         while(m % 5 == 0)
+         {
+           count++;
+           m = m / 5;
+         }
+    }
+    printf("一亿后面有%d个0\n",count);
+    return 0;
+}
