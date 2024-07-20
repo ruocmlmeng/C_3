@@ -379,8 +379,8 @@ build test10.exe: C_EXECUTABLE_LINKER__test10_Debug CMakeFiles/test10.dir/test_7
 
 build cmake_object_order_depends_target_test11: phony || CMakeFiles/test11.dir
 
-build CMakeFiles/test11.dir/test_7_19.c.obj: C_COMPILER__test11_unscanned_Debug E$:/Programs/CLion/Test5/test_7_19.c || cmake_object_order_depends_target_test11
-  DEP_FILE = CMakeFiles\test11.dir\test_7_19.c.obj.d
+build CMakeFiles/test11.dir/test_7_20.c.obj: C_COMPILER__test11_unscanned_Debug E$:/Programs/CLion/Test5/test_7_20.c || cmake_object_order_depends_target_test11
+  DEP_FILE = CMakeFiles\test11.dir\test_7_20.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\test11.dir
   OBJECT_FILE_DIR = CMakeFiles\test11.dir
@@ -393,7 +393,7 @@ build CMakeFiles/test11.dir/test_7_19.c.obj: C_COMPILER__test11_unscanned_Debug 
 #############################################
 # Link the executable test11.exe
 
-build test11.exe: C_EXECUTABLE_LINKER__test11_Debug CMakeFiles/test11.dir/test_7_19.c.obj
+build test11.exe: C_EXECUTABLE_LINKER__test11_Debug CMakeFiles/test11.dir/test_7_20.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\test11.dir

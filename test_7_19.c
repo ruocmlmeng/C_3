@@ -169,15 +169,15 @@
 // }
 #include <stdio.h>
 
-int main() {
- short val = 0x1234;
- unsigned char *p = (unsigned char *)&val;
-
- printf("Memory representation: ");
- for (int i = 0; i < sizeof(short); i++) {
-  printf("%02x ", p[i]);
- }
- printf("\n");
-
- return 0;
-}
+// int main() {
+//  short val = 0x1234;
+//  unsigned char *p = (unsigned char *)&val;
+//
+//  printf("Memory representation: ");
+//  for (int i = 0; i < sizeof(short); i++) {
+//   printf("%02x ", p[i]);
+//  }
+//  printf("\n");
+//
+//  return 0;
+// }

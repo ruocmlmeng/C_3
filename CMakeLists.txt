@@ -17,4 +17,5 @@ add_executable(test7
 add_executable(test8 test_7_9.c)
 add_executable(test9 test_7_11.c)
 add_executable(test10 test_7_15.c)
-add_executable(test11 test_7_19.c)
+add_executable(test11
+        test_7_20.c)
