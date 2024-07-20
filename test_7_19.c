@@ -156,14 +156,28 @@
  *
  *    1024的655次方的最后三位数是多少?
  */
-int main()
-{
- int i = 0;
- int p = 1;
- for(i = 1; i <= 655 ;i++)
- {
-  p = p * 1024 %1000;
+// int main()
+// {
+//  int i = 0;
+//  int p = 1;
+//  for(i = 1; i <= 655 ;i++)
+//  {
+//   p = p * 1024 %1000;
+//  }
+//  printf("%d\n",p);
+//  return 0;
+// }
+#include <stdio.h>
+
+int main() {
+ short val = 0x1234;
+ unsigned char *p = (unsigned char *)&val;
+
+ printf("Memory representation: ");
+ for (int i = 0; i < sizeof(short); i++) {
+  printf("%02x ", p[i]);
  }
- printf("%d\n",p);
+ printf("\n");
+
  return 0;
 }
