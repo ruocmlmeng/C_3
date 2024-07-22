@@ -105,32 +105,67 @@
 /*
  * 插入排序-遍历插入
  */
-int main()
-{
-    int a[10] = {7, 4, 6, 3, 2, 1, 0, 5, 8, 9};
-    int i = 0;
-    int n = sizeof(a) / sizeof(a[0]);
-    int j = 0;
-    for(i = 1 ;i <n ;i++)
-    {
-        for(j = 0 ; j<i;j++)
-        {
-            if(a[j] > a[i])
-            {
-                break;
-            }
-        }
-        int x = a[i];
-        int k = 0;
-        for (k = i-1 ; k>=j;k--)
-        {
-            a[k+1] = a[k];
-        }
-        a[j] = x;
-    }
-    for(i = 0 ; i<n ;i++)
-    {
-        printf("%d ",a[i]);
-    }
-    return 0;
-}
+// int main()
+// {
+//     int a[10] = {7, 4, 6, 3, 2, 1, 0, 5, 8, 9};
+//     int i = 0;
+//     int n = sizeof(a) / sizeof(a[0]);
+//     int j = 0;
+//     for(i = 1 ;i <n ;i++)
+//     {
+//         for(j = 0 ; j<i;j++)
+//         {
+//             if(a[j] > a[i])
+//             {
+//                 break;
+//             }
+//         }
+//         int x = a[i];
+//         int k = 0;
+//         for (k = i-1 ; k>=j;k--)
+//         {
+//             a[k+1] = a[k];
+//         }
+//         a[j] = x;
+//     }
+//     for(i = 0 ; i<n ;i++)
+//     {
+//         printf("%d ",a[i]);
+//     }
+//     return 0;
+// }
+
+/*
+ * 选择排序
+ */
+// int main()
+// {
+//     int a[10] = {7, 4, 6, 3, 2, 1, 0, 5, 8, 9};
+//     int i = 0;
+//     int n = sizeof(a) / sizeof(a[0]);
+//     int j = 0;
+//     for(i = 0 ; i <n -1;i++)
+//     {
+//         int max = a[0];
+//         int max_index = 0;
+//         for(j = 0;j < n - i; j++)
+//         {
+//             if(a[j] > max)
+//             {
+//                 max = a[j];
+//                 max_index = j;
+//             }
+//         }
+//         if(max_index != n - i - 1)
+//         {
+//             int temp = a[max_index];
+//             a[max_index] = a[n - i -1];
+//             a[n - i - 1] = temp;
+//         }
+//     }
+//     for (i = 0; i < n ;i++)
+//     {
+//         printf("%d ",a[i]);
+//     }
+//     return 0;
+// }
