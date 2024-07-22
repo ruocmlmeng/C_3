@@ -19,3 +19,4 @@ add_executable(test9 test_7_11.c)
 add_executable(test10 test_7_15.c)
 add_executable(test11
         test_7_20.c)
+add_executable(test12 test_7_22.c)
