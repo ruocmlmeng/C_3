@@ -300,13 +300,13 @@
 //  return 0;
 // }
 
-#include <stdio.h>
-#include <time.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-int main()
-{
-    printf("%p\n",typedef(S_IRUSR));
-  return 0;
-}
+// #include <stdio.h>
+// #include <time.h>
+// #include <sys/types.h>
+// #include <sys/stat.h>
+// #include <unistd.h>
+// int main()
+// {
+//     printf("%p\n",typedef(S_IRUSR));
+//   return 0;
+// }
