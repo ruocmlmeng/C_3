@@ -167,6 +167,54 @@ int binarySearchInsertPosition(int arr[],int size,int value)
      }
      return left;
 }
+// /*
+//  *   insertInSortedArray:将要插入的元素插入到数组中
+//  *   @arr:数组名
+//  *   @size:这是一个指向整数的指针，表示数组的当前大小。
+//  *   使用指针传递是为了能够在函数内部修改数组的大小。
+//  *   函数通过对这个指针所指向的值进行操作，来更新数组的实际大小。
+//  *   @value:待插入的值
+//  *   返回值:
+//  *        无返回值
+//  *
+//  */
+// void insertInSortedArray(int arr[],int *size,int value)
+// {
+//       int pos = binarySearchInsertPosition(arr,*size,value);
+//       //移动数组中的元素,腾出插入位置
+//       for(int i = *size; i > pos; i--)
+//       {
+//          arr[i] = arr[i-1];
+//       }
+//       //插入新元素
+//        arr[pos] = value;
+//
+//       //更新数组大小
+//        (*size)++;
+// }
+// void printArray(int arr[],int size)
+// {
+//   for(int i = 0; i < size ; i++)
+//   {
+//    printf("%d ",arr[i]);
+//   }
+//  printf("\n");
+// }
+// int main()
+// {
+//     int b[7] = {1,3,5,7,9,11};
+//     int size = 6;
+//     int a = 8;
+//
+//     printf("Original array: ");
+//     printArray(b,size);
+//
+//     insertInSortedArray(b,&size,a);
+//
+//     printf("Array after insertion: ");
+//     printArray(b,size);
+//     return 0;
+// }
 /*
  *   insertInSortedArray:将要插入的元素插入到数组中
  *   @arr:数组名
@@ -180,38 +228,38 @@ int binarySearchInsertPosition(int arr[],int size,int value)
  */
 void insertInSortedArray(int arr[],int *size,int value)
 {
-      int pos = binarySearchInsertPosition(arr,*size,value);
-      //移动数组中的元素,腾出插入位置
-      for(int i = *size; i > pos; i--)
-      {
-         arr[i] = arr[i-1];
-      }
-      //插入新元素
-       arr[pos] = value;
+ int pos = binarySearchInsertPosition(arr,*size,value);
+ //移动数组中的元素,腾出插入位置
+ for(int i = *size; i > pos; i--)
+ {
+  arr[i] = arr[i-1];
+ }
+ //插入新元素
+ arr[pos] = value;
 
-      //更新数组大小
-       (*size)++;
+ //更新数组大小
+ (*size)++;
 }
 void printArray(int arr[],int size)
 {
-  for(int i = 0; i < size ; i++)
-  {
-   printf("%d ",arr[i]);
-  }
+ for(int i = 0; i < size ; i++)
+ {
+  printf("%d ",arr[i]);
+ }
  printf("\n");
 }
 int main()
 {
-    int b[7] = {1,3,5,7,9,11};
-    int size = 6;
-    int a = 8;
+ int b[7] = {1,3,5,7,9,11};
+ int size = 6;
+ int a = 8;
 
-    printf("Original array: ");
-    printArray(b,size);
+ printf("Original array: ");
+ printArray(b,size);
 
-    insertInSortedArray(b,&size,a);
+ insertInSortedArray(b,&size,a);
 
-    printf("Array after insertion: ");
-    printArray(b,size);
-    return 0;
+ printf("Array after insertion: ");
+ printArray(b,size);
+ return 0;
 }
