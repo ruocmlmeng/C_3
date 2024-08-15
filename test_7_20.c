@@ -300,6 +300,43 @@ int binarySearchInsertPosition(int arr[],int size,int value)
 //  printArray(b,size);
 //  return 0;
 // }
+// void insertInSortedArray(int arr[],int *size,int value)
+// {
+//  int pos = binarySearchInsertPosition(arr,*size,value);
+//  //移动数组中的元素,腾出插入位置
+//  for(int i = *size; i > pos; i--)
+//  {
+//   arr[i] = arr[i-1];
+//  }
+//  //插入新元素
+//  arr[pos] = value;
+//
+//  //更新数组大小
+//  (*size)++;
+// }
+// void printArray(int arr[],int size)
+// {
+//  for(int i = 0; i < size ; i++)
+//  {
+//   printf("%d ",arr[i]);
+//  }
+//  printf("\n");
+// }
+// int main()
+// {
+//  int b[7] = {1,3,5,7,9,11};
+//  int size = 6;
+//  int a = 8;
+//
+//  printf("Original array: ");
+//  printArray(b,size);
+//
+//  insertInSortedArray(b,&size,a);
+//
+//  printf("Array after insertion: ");
+//  printArray(b,size);
+//  return 0;
+// }
 void insertInSortedArray(int arr[],int *size,int value)
 {
  int pos = binarySearchInsertPosition(arr,*size,value);
