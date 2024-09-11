@@ -930,6 +930,25 @@
 // }
 
 
+// int sum_array(int a[],int n)
+// {
+//  int sum = 0;
+//  int i = 0;
+//  for (i = 0 ;i < n ;i++)
+//  {
+//   sum += a[i];
+//  }
+//  return sum;
+// }
+// int main()
+// {
+//  int a[10] = {1,2,3,4,5,6,7,8,9,10};
+//  int  (*p)(int * ,int);
+//  p = sum_array;
+//  int sum = p(a,10);
+//  printf("sum == %d\n",sum);
+//  return 0;
+// }
 int sum_array(int a[],int n)
 {
  int sum = 0;
@@ -949,7 +968,6 @@ int main()
  printf("sum == %d\n",sum);
  return 0;
 }
-
 
 
 
