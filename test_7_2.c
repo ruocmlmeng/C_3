@@ -238,3 +238,73 @@
 //   printf("%d的%d次方的最后三位是：%3d\n", x, y, p);
 //   return 0;
 // }
+#include<math.h>
+// int main()
+// {
+//   printf("%lld\n",(long long )pow(1024,655));
+//   return 0;
+// }
+// int main()
+// {
+//
+//   long long num = 1024;
+//   long long res = (long long ) pow(num,655);
+//   int i = 0;
+//   for(i = 0 ; i < 3; i++)
+//   {
+//
+//     printf("%lld ",(long long )(res % 10));
+//     res = (long long ) (res / 10);
+//   }
+//   return 0;
+// }
+// int main() {
+//   int base = 1024;
+//   int exp = 655;
+//   int mod = 1000;
+//   int result = 1;
+//
+//   for (int i = 0; i < exp; i++) {
+//     result = (result * base) % mod;
+//   }
+//
+//   printf("1024的655次方的最后三位数是: %d\n", result);
+//   return 0;
+// }
+// 快速幂取模函数
+// unsigned long long powerMod(unsigned long long base, unsigned long long exp, unsigned long long mod) {
+//   unsigned long long result = 1;
+//   base = base % mod;
+//   while (exp > 0) {
+//     if (exp % 2 == 1) {
+//       result = (result * base) % mod;
+//     }
+//     exp = exp >> 1;
+//     base = (base * base) % mod;
+//   }
+//   return result;
+// }
+//
+// int main() {
+//   unsigned long long base = 1024;
+//   unsigned long long exp = 655;
+//   unsigned long long mod = 1000;
+//   unsigned long long result = powerMod(base, exp, mod);
+//   printf("1024的655次方的最后三位数是: %llu\n", result);
+//   return 0;
+// }
+// int main() {
+//   int x, y, p, n;
+//   printf("说明：底数为x,幂为y，请输入:\n");
+//   printf("x=");
+//   scanf("%d", &x);
+//   printf("y=");
+//   scanf("%d", &y);
+//   p = 1;
+//   for(n = 1; n <= y; n++) {
+//     p=p*x%1000; //关键是掌握这句话的意思，最后三位永远只与其乘数的最后三位相关，故只保留最后三位，以免溢出！
+//     printf("%3d:  p=%3d \n", n, p);//若不需要输出过程，则不需要此行代码
+//   }
+//   printf("%d的%d次方的最后三位是：%3d\n", x, y, p);
+//   return 0;
+// }
