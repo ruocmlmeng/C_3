@@ -315,6 +315,42 @@
 //   }
 //   return 0;
 // }
+// int  IsArray(int a[],int n)
+// {
+//  int i = 0;
+//  for (i = 0; i < n - 1;i++)
+//  {
+//   int j = 0;
+//   for(j = i + 1; j < n ; j++)
+//   {
+//    if(a[j] < a[i])
+//    {
+//     return 0;
+//    }
+//   }
+//  }
+//  return 1;
+// }
+// int main()
+// {
+//  int a[5] = {0};
+//  int i = 0;
+//  for (i = 0; i < 5; i++)
+//  {
+//   scanf("%d",&a[i]);
+//  }
+//  int res = IsArray(a,5);
+//  if(res)
+//  {
+//   printf("该数组为有序数组\n");
+//  }
+//  else
+//  {
+//   printf("该数组为无序数组\n");
+//  }
+//  return 0;
+// }
+
 int  IsArray(int a[],int n)
 {
  int i = 0;
@@ -350,4 +386,3 @@ int main()
  }
  return 0;
 }
-
