@@ -346,6 +346,35 @@
 //  printf("max == %d,max_2 == %d\n",max,max_2);
 //  return 0;
 // }
+// int main()
+// {
+//  int a[N] = {0};
+//  printf("请输入十个正数:\n");
+//  int i = 0;
+//  for(i = 0; i < N ;i++)
+//  {
+//   scanf("%d",&a[i]);
+//  }
+//  int max = a[0];
+//  int max_2;
+//  for(i = 0; i < N ; i++)
+//  {
+//   if(a[i] > max)
+//   {
+//    max_2 = max;
+//    max = a[i];
+//   }
+//   else
+//   {
+//    if(a[i] > max_2)
+//    {
+//     max_2 = a[i];
+//    }
+//   }
+//  }
+//  printf("max == %d,max_2 == %d\n",max,max_2);
+//  return 0;
+// }
 int main()
 {
  int a[N] = {0};
