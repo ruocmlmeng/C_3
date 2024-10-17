@@ -335,6 +335,49 @@
 //
 //  return 0;
 // }
+// int main()
+// {
+//  int n = 0;
+//  printf("请输入一个正整数：\n");
+//  scanf("%d",&n);
+//  int left = 1;
+//  int right = 1;
+//  int sum = 1;
+//  while (left <= n/2)
+//  {
+//   if(sum < n)
+//   {
+//    right++;
+//    sum = sum + right;
+//   }
+//   else if(sum > n)
+//   {
+//    sum = sum - left;
+//    left++;
+//   }
+//   else
+//   {
+
+//    int i = 0;
+//    for(i = left; i <= right;i++)
+//    {
+//     if(i == right)
+//     {
+//      printf("%d",i);
+//     }
+//     else
+//     {
+//      printf("%d + ",i);
+//     }
+
+//    }
+//    printf("\n");
+//     sum = sum - left;
+//     left++;
+//   }
+//  }
+//  return 0;
+// }
 int main()
 {
  int n = 0;
